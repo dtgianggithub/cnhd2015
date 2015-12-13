@@ -140,9 +140,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\ExpController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ProductAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +174,7 @@
     <Compile Include="Models\LOAITHANHVIEN.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ModelEntity\SANPHAMModel.cs" />
     <Compile Include="Models\NHASANXUAT.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
