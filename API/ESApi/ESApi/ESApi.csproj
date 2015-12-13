@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -174,7 +178,13 @@
     <Compile Include="Models\LOAITHANHVIEN.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ModelEntity\LOAISANPHAMModel.cs" />
+    <Compile Include="Models\ModelEntity\LOAITHANHVIENModel.cs" />
+    <Compile Include="Models\ModelEntity\NHASANXUATModel.cs" />
     <Compile Include="Models\ModelEntity\SANPHAMModel.cs" />
+    <Compile Include="Models\ModelEntity\THANHTOANONLINEModel.cs" />
+    <Compile Include="Models\ModelEntity\THANHVIENModel.cs" />
+    <Compile Include="Models\ModelEntity\TRANGTHAIDONHANGModel.cs" />
     <Compile Include="Models\NHASANXUAT.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>

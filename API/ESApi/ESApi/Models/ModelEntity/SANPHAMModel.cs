@@ -9,7 +9,7 @@ namespace ESApi.Models.ModelEntity
     {
         public string MA { get; set; }
         public string TEN { get; set; }
-        public Nullable<double> DONGIABAN { get; set; }
+        public double DONGIABAN { get; set; }
         public string HINHANH { get; set; }
         public string MOTA { get; set; }
         public int  SOLUONG { get; set; }
