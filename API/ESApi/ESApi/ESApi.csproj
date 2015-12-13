@@ -39,11 +39,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -113,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -139,6 +144,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CHITIETDONHANG.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DONHANG.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHUYENMAI.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAISANPHAM.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAITHANHVIEN.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHASANXUAT.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THANHTOANONLINE.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THANHVIEN.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRANGTHAIDONHANG.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +211,23 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\ESDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ESDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ESDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ESDB.edmx</DependentUpon>
+      <LastGenOutput>ESDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ESDB.edmx.diagram">
+      <DependentUpon>ESDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ESDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ESDB.edmx</DependentUpon>
+      <LastGenOutput>ESDB.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -184,7 +251,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

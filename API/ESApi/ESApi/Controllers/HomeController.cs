@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,9 @@ namespace ESApi.Controllers
 {
     public class HomeController : Controller
     {
+
+        ESDBEntities db = new ESDBEntities();
+
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";

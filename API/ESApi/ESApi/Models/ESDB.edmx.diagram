@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d3ed29f2e249426cb3ff68dfde95a078" Name="Diagram1">
+        <EntityTypeShape EntityType="ESDBModel.CHITIETDONHANG" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.DONHANG" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.KHUYENMAI" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.LOAITHANHVIEN" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.NHASANXUAT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.SANPHAM" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.THANHTOANONLINE" Width="1.5" PointX="10.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.THANHVIEN" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.TRANGTHAIDONHANG" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="ESDBModel.FK_CHITIETDONHANG_DONHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_CHITIETDONHANG_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_DONHANG_TRANGTHAIDONHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_SANPHAM_KHUYENMAI" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_SANPHAM_LOAISANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_THANHVIEN_LOAITHANHVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_SANPHAM_NHASANXUAT" ManuallyRouted="false" />
+        <AssociationConnector Association="ESDBModel.FK_THANHTOANONLINE_THANHVIEN" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
