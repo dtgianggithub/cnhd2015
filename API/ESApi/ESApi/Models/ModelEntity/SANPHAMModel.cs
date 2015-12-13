@@ -14,9 +14,9 @@ namespace ESApi.Models.ModelEntity
         public string MOTA { get; set; }
         public int  SOLUONG { get; set; }
         public int LOAISANPHAM { get; set; }
-        public int SANPHAMMOI { get; set; }
+        public bool SANPHAMMOI { get; set; }
         public int NHASANXUAT { get; set; }
-        public int SANPHAMBANCHAY { get; set; }
+        public bool SANPHAMBANCHAY { get; set; }
         public bool DAXOA { get; set; }
         public int MAKHUYENMAI { get; set; }
     }
