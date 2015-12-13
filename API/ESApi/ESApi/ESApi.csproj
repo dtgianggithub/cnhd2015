@@ -181,7 +181,13 @@
     <Compile Include="Models\ModelEntity\CHITIETDONHANGModel.cs" />
     <Compile Include="Models\ModelEntity\DONHANGModel.cs" />
     <Compile Include="Models\ModelEntity\KHUYENMAIModel.cs" />
+    <Compile Include="Models\ModelEntity\LOAISANPHAMModel.cs" />
+    <Compile Include="Models\ModelEntity\LOAITHANHVIENModel.cs" />
+    <Compile Include="Models\ModelEntity\NHASANXUATModel.cs" />
     <Compile Include="Models\ModelEntity\SANPHAMModel.cs" />
+    <Compile Include="Models\ModelEntity\THANHTOANONLINEModel.cs" />
+    <Compile Include="Models\ModelEntity\THANHVIENModel.cs" />
+    <Compile Include="Models\ModelEntity\TRANGTHAIDONHANGModel.cs" />
     <Compile Include="Models\NHASANXUAT.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
