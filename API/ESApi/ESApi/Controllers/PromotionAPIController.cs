@@ -7,22 +7,20 @@ using System.Web.Http;
 using AutoMapper;
 using ESApi.Models;
 using ESApi.Models.ModelEntity;
+using ESApi.Models.Code;
 
 namespace ESApi.Controllers
 {
     public class PromotionAPIController : ApiController
     {
         ESDBEntities db = new ESDBEntities();
+        PromotionCode code = new PromotionCode();
 
         [HttpGet]
-        [Route("api/promotion/all")]
-        public IHttpActionResult GetAllPromotion()
+        [Route("api/promotion/ByID/{ID}")]
+        public IHttpActionResult GetPromotion(string ID, string TimeBegin, string TimeEnd)
         {
-            List<KHUYENMAI> list = db.KHUYENMAIs.Where(sp => sp.DAXOA == false).ToList();
-            Mapper.CreateMap<KHUYENMAI, KHUYENMAIModel>();
-            List<KHUYENMAIModel> ret =
-                Mapper.Map<List<KHUYENMAI>, List<KHUYENMAIModel>>(list);
-            return Ok(ret);
+            return Ok(code.GetPromotion(int.Parse(ID)));
         }
         [HttpPost]
         [Route("api/promotion/add")]

@@ -7,33 +7,55 @@ using System.Net.Http;
 using System.Web.Http;
 using ESApi.Models.ModelEntity;
 using AutoMapper;
+using ESApi.Models.Code;
 
 namespace ESApi.Controllers
 {
     public class ProductAPIController : ApiController
     {
         ESDBEntities db = new ESDBEntities();
+        ProductCode code = new ProductCode();
 
         [HttpGet]
         [Route("api/product/all")]
         public IHttpActionResult GetAllProducts()
         {
-                List<SANPHAM> list = db.SANPHAMs.Where(sp => sp.DAXOA == false).ToList();
-                Mapper.CreateMap<SANPHAM, SANPHAMModel>();
-                List<SANPHAMModel> ret =
-                    Mapper.Map<List<SANPHAM>, List<SANPHAMModel>>(list);
-                return Ok(ret);
+                return Ok(code.GetProductList());
+        }
+
+        [HttpGet]
+        [Route("api/product/ByNameID/{Name}/{ID}")]
+        public IHttpActionResult GetProductsbyNameID(string Name, string ID)
+        {
+            return Ok(code.GetProductsByType(Name,int.Parse(ID)));
+        }
+
+        [HttpGet]
+        [Route("api/product/specialproduct")]
+        public IHttpActionResult GetSpeacialProducts()
+        {
+            return Ok(code.GetSpecialProduct());
+        }
+
+        [HttpGet]
+        [Route("api/product/newproduct")]
+        public IHttpActionResult GetNewProducts()
+        {
+            return Ok(code.GetNewProduct());
         }
 
         [HttpGet]
         [Route("api/product/ByID/{ID}")]
         public IHttpActionResult GetProductbyID(string ID)
         {
-            SANPHAM sanpham = db.SANPHAMs.Where(sp => sp.DAXOA == false && sp.MA == ID).SingleOrDefault();
-            Mapper.CreateMap<SANPHAM, SANPHAMModel>();
-            SANPHAMModel spmodel =
-                Mapper.Map<SANPHAM, SANPHAMModel>(sanpham);
-            return Ok(spmodel);
+            return Ok(code.GetDetailProduct(ID));
+        }
+
+        [HttpGet]
+        [Route("api/product/GetByID/{ID}")]
+        public IHttpActionResult GetProduct(string ID)
+        {
+            return Ok(code.GetProduct(ID));
         }
 
         [HttpGet]

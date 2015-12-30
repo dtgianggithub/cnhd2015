@@ -86,7 +86,7 @@ create table THANHVIEN
 (
 	MA int primary key identity(1,1), -- khóa chính là khóa ngoại tới bảng THANHVIEN
 	TENDANGNHAP varchar(30),
-	MATKHAU nvarchar(max),
+	MATKHAU nvarchar(max), 
 	TEN nvarchar(50),
 	DIACHI nvarchar(256),
 	DIENTHOAI varchar(12),

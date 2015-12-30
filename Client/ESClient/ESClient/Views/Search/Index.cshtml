@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="top_search">
+    @using (Html.BeginForm("Search", "Product"))
+    {
+        @Html.TextBox("Search_string", "", new { @class = "search_input", @placeholder = "Tìm kiếm" })
+
+    }
+</div>
+
