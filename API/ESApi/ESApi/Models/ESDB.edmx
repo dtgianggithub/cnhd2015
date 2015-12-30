@@ -30,6 +30,15 @@
           <Property Name="TRANGTHAI" Type="int" />
           <Property Name="DAXOA" Type="bit" />
         </EntityType>
+        <EntityType Name="HOTROONLINE">
+          <Key>
+            <PropertyRef Name="MA" />
+          </Key>
+          <Property Name="MA" Type="int" Nullable="false" />
+          <Property Name="SKYPE" Type="varchar" MaxLength="100" />
+          <Property Name="TEN" Type="nvarchar" MaxLength="256" />
+          <Property Name="DAXOA" Type="bit" />
+        </EntityType>
         <EntityType Name="KHUYENMAI">
           <Key>
             <PropertyRef Name="MA" />
@@ -213,6 +222,7 @@
         <EntityContainer Name="ESDBModelStoreContainer">
           <EntitySet Name="CHITIETDONHANG" EntityType="Self.CHITIETDONHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOTROONLINE" EntityType="Self.HOTROONLINE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHUYENMAI" EntityType="Self.KHUYENMAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAISANPHAM" EntityType="Self.LOAISANPHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOAITHANHVIEN" EntityType="Self.LOAITHANHVIEN" Schema="dbo" store:Type="Tables" />
@@ -287,6 +297,15 @@
           <Property Name="DAXOA" Type="Boolean" />
           <NavigationProperty Name="CHITIETDONHANGs" Relationship="Self.FK_CHITIETDONHANG_DONHANG" FromRole="DONHANG" ToRole="CHITIETDONHANG" />
           <NavigationProperty Name="TRANGTHAIDONHANG" Relationship="Self.FK_DONHANG_TRANGTHAIDONHANG" FromRole="DONHANG" ToRole="TRANGTHAIDONHANG" />
+        </EntityType>
+        <EntityType Name="HOTROONLINE">
+          <Key>
+            <PropertyRef Name="MA" />
+          </Key>
+          <Property Name="MA" Type="Int32" Nullable="false" />
+          <Property Name="SKYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DAXOA" Type="Boolean" />
         </EntityType>
         <EntityType Name="KHUYENMAI">
           <Key>
@@ -483,6 +502,7 @@
         <EntityContainer Name="ESDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETDONHANGs" EntityType="Self.CHITIETDONHANG" />
           <EntitySet Name="DONHANGs" EntityType="Self.DONHANG" />
+          <EntitySet Name="HOTROONLINEs" EntityType="Self.HOTROONLINE" />
           <EntitySet Name="KHUYENMAIs" EntityType="Self.KHUYENMAI" />
           <EntitySet Name="LOAISANPHAMs" EntityType="Self.LOAISANPHAM" />
           <EntitySet Name="LOAITHANHVIENs" EntityType="Self.LOAITHANHVIEN" />
@@ -552,6 +572,16 @@
                 <ScalarProperty Name="DIACHINHAN" ColumnName="DIACHINHAN" />
                 <ScalarProperty Name="DIENTHOAINGUOINHAN" ColumnName="DIENTHOAINGUOINHAN" />
                 <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOTROONLINEs">
+            <EntityTypeMapping TypeName="ESDBModel.HOTROONLINE">
+              <MappingFragment StoreEntitySet="HOTROONLINE">
+                <ScalarProperty Name="MA" ColumnName="MA" />
+                <ScalarProperty Name="SKYPE" ColumnName="SKYPE" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
               </MappingFragment>
             </EntityTypeMapping>

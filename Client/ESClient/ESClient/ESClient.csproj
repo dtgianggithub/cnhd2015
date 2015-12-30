@@ -164,6 +164,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Models\Code\API.cs" />
     <Compile Include="Models\Code\DataModel\CHITIETDONHANGModel.cs" />
     <Compile Include="Models\Code\DataModel\DONHANGModel.cs" />
+    <Compile Include="Models\Code\DataModel\HOTROONLINE.cs" />
     <Compile Include="Models\Code\DataModel\KHUYENMAIModel.cs" />
     <Compile Include="Models\Code\DataModel\LOAISANPHAMModel.cs" />
     <Compile Include="Models\Code\DataModel\LOAITHANHVIENModel.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="Models\Code\MenuCode.cs" />
     <Compile Include="Models\Code\PromotionCode.cs" />
     <Compile Include="Models\Code\SessionHelper.cs" />
+    <Compile Include="Models\Code\SupportCode.cs" />
     <Compile Include="Models\EntityModel\CartSession.cs" />
     <Compile Include="Models\EntityModel\DetailProduct.cs" />
     <Compile Include="Models\EntityModel\ManufactoryList.cs" />
@@ -324,10 +327,13 @@
     <Content Include="Views\Manufactory\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\Support\SupportOnline.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Support\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

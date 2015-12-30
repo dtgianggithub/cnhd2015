@@ -149,6 +149,7 @@
     <Compile Include="Controllers\MenuAPIController.cs" />
     <Compile Include="Controllers\ProductAPIController.cs" />
     <Compile Include="Controllers\PromotionAPIController.cs" />
+    <Compile Include="Controllers\SupportAPIController.cs" />
     <Compile Include="Controllers\TypeProductAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,6 +161,7 @@
     <Compile Include="Models\Code\MenuCode.cs" />
     <Compile Include="Models\Code\ProductCode.cs" />
     <Compile Include="Models\Code\PromotionCode.cs" />
+    <Compile Include="Models\Code\SupportCode.cs" />
     <Compile Include="Models\DONHANG.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
@@ -177,6 +179,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ESDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOTROONLINE.cs">
+      <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHUYENMAI.cs">
       <DependentUpon>ESDB.tt</DependentUpon>

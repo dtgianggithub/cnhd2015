@@ -35,27 +35,27 @@ namespace ESClient.Controllers
         }
 
 
-        public ActionResult CheckoutByPayPal()
-        {
-            //kiem tra coi da dang nhap hay chua de hien thi View tuong ung
-            string username = SessionHelper.GetUserSession();
-            CheckoutModel checkout = new CheckoutModel();
-            if (username != null)
-            {
-                checkout.listCartSession = SessionHelper.GetCartSession(username);
-                checkout.user = (from u in db.THANHVIENs where u.TENDANGNHAP == username select u).SingleOrDefault();
-                ViewBag.summoney = Summoney(checkout.listCartSession);
-                return View(checkout);
-            }
-            else
-            {
-                checkout.listCartSession = SessionHelper.GetCartSession("cart");
-                ViewBag.summoney = Summoney(checkout.listCartSession);
-                return View(checkout);
-            }
+        //public ActionResult CheckoutByPayPal()
+        //{
+        //    //kiem tra coi da dang nhap hay chua de hien thi View tuong ung
+        //    string username = SessionHelper.GetUserSession();
+        //    CheckoutModel checkout = new CheckoutModel();
+        //    if (username != null)
+        //    {
+        //        checkout.listCartSession = SessionHelper.GetCartSession(username);
+        //        checkout.user = (from u in db.THANHVIENs where u.TENDANGNHAP == username select u).SingleOrDefault();
+        //        ViewBag.summoney = Summoney(checkout.listCartSession);
+        //        return View(checkout);
+        //    }
+        //    else
+        //    {
+        //        checkout.listCartSession = SessionHelper.GetCartSession("cart");
+        //        ViewBag.summoney = Summoney(checkout.listCartSession);
+        //        return View(checkout);
+        //    }
 
 
-        }
+        //}
 
 
         public double Summoney(List<CartSession> listcartsession)
@@ -89,23 +89,23 @@ namespace ESClient.Controllers
                 if (receiver != null) //thong tin nguoi nhan
                 {
                     //khoi tao id
-                    string id = CreateId();
-                    if (id != "")
-                    {
-                        //thêm đơn hàng
-                        DONHANG order = new DONHANG();
-                        order.MA = id;
-                        order.TONGTIEN = Summoney(list);
-                        order.NGAYDATHANG = DateTime.Now;
-                        order.NGAYNHANHANG = DateTime.Now.AddDays(3);
-                        order.TENNGUOINHAN = receiver.name;
-                        order.DIACHINHAN = receiver.address;
-                        order.DIENTHOAINGUOINHAN = receiver.phone;
-                        order.TRANGTHAI = 1;
-                        order.DAXOA = false;
+                    //string id = CreateId();
+                    //if (id != "")
+                    //{
+                    //    ////thêm đơn hàng
+                    //    //DONHANG order = new DONHANG();
+                    //    //order.MA = id;
+                    //    //order.TONGTIEN = Summoney(list);
+                    //    //order.NGAYDATHANG = DateTime.Now;
+                    //    //order.NGAYNHANHANG = DateTime.Now.AddDays(3);
+                    //    //order.TENNGUOINHAN = receiver.name;
+                    //    //order.DIACHINHAN = receiver.address;
+                    //    //order.DIENTHOAINGUOINHAN = receiver.phone;
+                    //    //order.TRANGTHAI = 1;
+                    //    //order.DAXOA = false;
 
-                        //phai bo sung them database cho thanh vien mua hang la ai
-                    }
+                    //    //phai bo sung them database cho thanh vien mua hang la ai
+                    //}
                 }
             }
             else
@@ -128,33 +128,33 @@ namespace ESClient.Controllers
         }
 
 
-        public string CreateId()
-        {
-            string idcreated = "";
-            //lấy mã số đơn hàng cuối cùng trong bảng
-            DONHANG lastitem = db.DONHANGs.ToList().Last();
-            if (lastitem != null)
-            {
-                //tien hanh tach chuoi de lay 3 so cuoi cung
-                string lastitemid = lastitem.MA.ToString();
-                string idfigure = lastitemid.Substring(1);
-                int figure = int.Parse(idfigure);
-                figure++;
-                if (figure <= 99) //  co 2 chu so
-                {
-                    idcreated = "A0" + figure;
-                }
-                else
-                {
-                    idcreated = "A" + figure;
-                }
-            }
-            else
-            {
-                idcreated = "A001";
-            }
+        //public string CreateId()
+        //{
+        //    string idcreated = "";
+        //    //lấy mã số đơn hàng cuối cùng trong bảng
+        //    DONHANG lastitem = db.DONHANGs.ToList().Last();
+        //    if (lastitem != null)
+        //    {
+        //        //tien hanh tach chuoi de lay 3 so cuoi cung
+        //        string lastitemid = lastitem.MA.ToString();
+        //        string idfigure = lastitemid.Substring(1);
+        //        int figure = int.Parse(idfigure);
+        //        figure++;
+        //        if (figure <= 99) //  co 2 chu so
+        //        {
+        //            idcreated = "A0" + figure;
+        //        }
+        //        else
+        //        {
+        //            idcreated = "A" + figure;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        idcreated = "A001";
+        //    }
 
-            return idcreated;
-        }
+        //    return idcreated;
+        //}
     }
 }

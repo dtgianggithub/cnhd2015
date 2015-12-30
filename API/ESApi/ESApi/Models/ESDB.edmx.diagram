@@ -4,9 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d3ed29f2e249426cb3ff68dfde95a078" Name="Diagram1">
+      <Diagram DiagramId="49958a0168964053a8f4fcd7492a29fd" Name="Diagram1">
         <EntityTypeShape EntityType="ESDBModel.CHITIETDONHANG" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESDBModel.DONHANG" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESDBModel.HOTROONLINE" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ESDBModel.KHUYENMAI" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESDBModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESDBModel.LOAITHANHVIEN" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />

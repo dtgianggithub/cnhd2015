@@ -16,22 +16,22 @@ namespace ESClient.Controllers
             return View(code.GetProductList(name, id));
         }
 
-        //[ChildActionOnly]
-        //public ActionResult SpecialProduct()
-        //{
-        //    return PartialView(code.GetSpecialProduct());
-        //}
+        [ChildActionOnly]
+        public ActionResult SpecialProduct()
+        {
+            return PartialView(code.GetSpecialProduct());
+        }
 
-        //public ActionResult Details(string id) // nhan id de biet dang hien thi detail san pham nao
-        //{
-        //    return View(code.GetDetailProduct(id));
-        //}
+        public ActionResult Details(string id) // nhan id de biet dang hien thi detail san pham nao
+        {
+            return View(code.GetDetailProduct(id));
+        }
 
-        //[ChildActionOnly]
-        //public ActionResult NewProduct()
-        //{
-        //    return PartialView(code.GetNewProduct());
-        //}
+        [ChildActionOnly]
+        public ActionResult NewProduct()
+        {
+            return PartialView(code.GetNewProduct());
+        }
 
 
         [HttpPost]

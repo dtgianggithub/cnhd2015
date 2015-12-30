@@ -12,6 +12,7 @@ namespace ESClient.Models.EntityModel
         public List<double> newListPromotion { get; set; }
         public List<SANPHAMModel> specialList { get; set; }
         public List<double> specialListPromotion { get; set; }
+        public string path { get; set; }
 
         public ProductList()
         {

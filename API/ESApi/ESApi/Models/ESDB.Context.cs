@@ -27,6 +27,7 @@ namespace ESApi.Models
     
         public DbSet<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
         public DbSet<DONHANG> DONHANGs { get; set; }
+        public DbSet<HOTROONLINE> HOTROONLINEs { get; set; }
         public DbSet<KHUYENMAI> KHUYENMAIs { get; set; }
         public DbSet<LOAISANPHAM> LOAISANPHAMs { get; set; }
         public DbSet<LOAITHANHVIEN> LOAITHANHVIENs { get; set; }

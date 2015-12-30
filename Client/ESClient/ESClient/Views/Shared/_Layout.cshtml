@@ -21,14 +21,14 @@
 <body>
     <div id="main_container">
         <div class="top_bar">
-            @*@{Html.RenderAction("Index", "Account");}
-            @{Html.RenderAction("Index", "Search");}*@
+            @{Html.RenderAction("Index", "Account");}
+            @{Html.RenderAction("Index", "Search");}
         </div>
         <div id="header">
             <div id="logo"> <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/images/logo.png")" alt="" border="0" width="237" height="140" /></a> </div>
             <div class="oferte_content">
                 <div class="top_divider"><img src="@Url.Content("~/Content/images/header_divider.png")" alt="" width="1" height="164" /></div>
-                @*@{Html.RenderAction("Index", "Slide");}*@
+                @{Html.RenderAction("Index", "Slide");}
                 <div class="top_divider"><img src="@Url.Content("~/Content/images/header_divider.png")" alt="" width="1" height="164" /></div>
             </div>
             <!-- end of oferte_content-->
@@ -36,7 +36,7 @@
         <div id="main_content">
             <div id="menu_tab">
                 <div class="left_menu_corner"></div>
-                @*@{Html.RenderAction("Index", "Menu");}*@
+                @{Html.RenderAction("Index", "Menu");}
 
                 <div class="right_menu_corner"></div>
             </div>
@@ -44,11 +44,11 @@
             <div class="left_content">
 
                 <div class="title_box">Sản phẩm đặc biệt</div>
-                @*@{Html.RenderAction("SpecialProduct", "Product");}*@
+                @{Html.RenderAction("SpecialProduct", "Product");}
 
 
-                @*<div class="title_box">Hỗ trợ online</div>
-                @{Html.RenderAction("SupportOnline", "Support");}*@
+                <div class="title_box">Hỗ trợ online</div>
+                @{Html.RenderAction("SupportOnline", "Support");}
 
             </div>
 
