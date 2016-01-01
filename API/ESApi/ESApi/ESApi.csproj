@@ -144,9 +144,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountAPIController.cs" />
     <Compile Include="Controllers\CartAPIController.cs" />
     <Compile Include="Controllers\ManufactoryAPIController.cs" />
     <Compile Include="Controllers\MenuAPIController.cs" />
+    <Compile Include="Controllers\OrderAPIController.cs" />
     <Compile Include="Controllers\ProductAPIController.cs" />
     <Compile Include="Controllers\PromotionAPIController.cs" />
     <Compile Include="Controllers\SupportAPIController.cs" />
@@ -157,8 +159,10 @@
     <Compile Include="Models\CHITIETDONHANG.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Code\AccountCode.cs" />
     <Compile Include="Models\Code\ManufactoryCode.cs" />
     <Compile Include="Models\Code\MenuCode.cs" />
+    <Compile Include="Models\Code\OrderCode.cs" />
     <Compile Include="Models\Code\ProductCode.cs" />
     <Compile Include="Models\Code\PromotionCode.cs" />
     <Compile Include="Models\Code\SupportCode.cs" />
@@ -217,11 +221,14 @@
     <Compile Include="Models\TRANGTHAIDONHANG.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\CartSession.cs" />
     <Compile Include="Models\ViewModel\DetailProduct.cs" />
     <Compile Include="Models\ViewModel\ManufactoryList.cs" />
     <Compile Include="Models\ViewModel\MenuList.cs" />
     <Compile Include="Models\ViewModel\NewProduct.cs" />
+    <Compile Include="Models\ViewModel\OrderDetail.cs" />
     <Compile Include="Models\ViewModel\ProductList.cs" />
+    <Compile Include="Models\ViewModel\ReceiveViewModel.cs" />
     <Compile Include="Models\ViewModel\SpecialProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -268,7 +275,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

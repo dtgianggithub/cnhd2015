@@ -10,6 +10,7 @@ namespace ESClient.Controllers
 {
     public class CheckoutController : Controller
     {
+        public CheckoutCode code = new CheckoutCode();
         // GET: Checkout
         public ActionResult Index()
         {
@@ -19,7 +20,6 @@ namespace ESClient.Controllers
         [HttpPost]
         public ActionResult Index(ReceiverViewModel receiver)
         {
-
             if (ModelState.IsValid)
             {
                 //Luu session cho receiver
@@ -30,131 +30,62 @@ namespace ESClient.Controllers
             {
                 return View();
             }
-
-
         }
 
 
-        //public ActionResult CheckoutByPayPal()
-        //{
-        //    //kiem tra coi da dang nhap hay chua de hien thi View tuong ung
-        //    string username = SessionHelper.GetUserSession();
-        //    CheckoutModel checkout = new CheckoutModel();
-        //    if (username != null)
-        //    {
-        //        checkout.listCartSession = SessionHelper.GetCartSession(username);
-        //        checkout.user = (from u in db.THANHVIENs where u.TENDANGNHAP == username select u).SingleOrDefault();
-        //        ViewBag.summoney = Summoney(checkout.listCartSession);
-        //        return View(checkout);
-        //    }
-        //    else
-        //    {
-        //        checkout.listCartSession = SessionHelper.GetCartSession("cart");
-        //        ViewBag.summoney = Summoney(checkout.listCartSession);
-        //        return View(checkout);
-        //    }
-
-
-        //}
-
-
-        public double Summoney(List<CartSession> listcartsession)
+        public ActionResult CheckoutByPayPal()
         {
-            double sum = 0;
-            foreach (var item in listcartsession)
-            {
-                sum += (double)(item.sp.DONGIABAN) * (item.soluong);
-            }
-
-            return sum;
+            //kiem tra coi da dang nhap hay chua de hien thi View tuong ung
+            string username = SessionHelper.GetUserSession();
+            CheckoutModel checkout = code.GetCheckout();
+           
+            ViewBag.summoney = code.Summoney(checkout.listCartSession);
+            return View(checkout);
         }
+
+
 
 
         public ActionResult CheckoutSuccess()
         {
-
             //Luu thong tin don hang tai day dua vao thong tin session
             //kiem tra coi da dang nhap hay chua de hien thi View tuong ung
 
             string username = SessionHelper.GetUserSession();
             ReceiverViewModel receiver = SessionHelper.GetReceiverSession();
-            List<CartSession> list = new List<CartSession>();
-
-
-
+            OrderDetail order = new OrderDetail();
 
             if (username != null)//da dang nhap //thong tin nguoi mua
             {
-                list = SessionHelper.GetCartSession(username); //san pham
+                order.listCartSession = SessionHelper.GetCartSession(username); //san pham
                 if (receiver != null) //thong tin nguoi nhan
                 {
-                    //khoi tao id
-                    //string id = CreateId();
-                    //if (id != "")
-                    //{
-                    //    ////thêm đơn hàng
-                    //    //DONHANG order = new DONHANG();
-                    //    //order.MA = id;
-                    //    //order.TONGTIEN = Summoney(list);
-                    //    //order.NGAYDATHANG = DateTime.Now;
-                    //    //order.NGAYNHANHANG = DateTime.Now.AddDays(3);
-                    //    //order.TENNGUOINHAN = receiver.name;
-                    //    //order.DIACHINHAN = receiver.address;
-                    //    //order.DIENTHOAINGUOINHAN = receiver.phone;
-                    //    //order.TRANGTHAI = 1;
-                    //    //order.DAXOA = false;
-
-                    //    //phai bo sung them database cho thanh vien mua hang la ai
-                    //}
+                     order.TotalMoney = code.Summoney(order.listCartSession);
+                     order.receive = receiver;
+                     
+                     //xóa session giỏ hàng và người nhận đi.
+                     HttpContext.Session["receiver"] = null;
+                     HttpContext.Session[username] = null;
                 }
             }
             else
             {
-                list = SessionHelper.GetCartSession("cart"); //san pham
+                order.listCartSession = SessionHelper.GetCartSession("cart"); //san pham
                 if (receiver != null) //thong tin nguoi nhan
                 {
+                    order.TotalMoney = code.Summoney(order.listCartSession);
+                    order.receive = receiver;
 
+                    //xóa session giỏ hàng và người nhận đi.
+                    HttpContext.Session["receiver"] = null;
+                    HttpContext.Session[username] = null;
+                    }
                 }
-            }
-
-
-            //Giam so luong san pham xuong
-
-            //xóa session giỏ hàng và người nhận đi.
-
-            //gui email thong bao
 
             return View();
         }
 
 
-        //public string CreateId()
-        //{
-        //    string idcreated = "";
-        //    //lấy mã số đơn hàng cuối cùng trong bảng
-        //    DONHANG lastitem = db.DONHANGs.ToList().Last();
-        //    if (lastitem != null)
-        //    {
-        //        //tien hanh tach chuoi de lay 3 so cuoi cung
-        //        string lastitemid = lastitem.MA.ToString();
-        //        string idfigure = lastitemid.Substring(1);
-        //        int figure = int.Parse(idfigure);
-        //        figure++;
-        //        if (figure <= 99) //  co 2 chu so
-        //        {
-        //            idcreated = "A0" + figure;
-        //        }
-        //        else
-        //        {
-        //            idcreated = "A" + figure;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        idcreated = "A001";
-        //    }
-
-        //    return idcreated;
-        //}
+       
     }
 }

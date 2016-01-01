@@ -179,6 +179,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Code\API.cs" />
+    <Compile Include="Models\Code\CheckoutCode.cs" />
     <Compile Include="Models\Code\DataModel\CHITIETDONHANGModel.cs" />
     <Compile Include="Models\Code\DataModel\DONHANGModel.cs" />
     <Compile Include="Models\Code\DataModel\HOTROONLINE.cs" />
@@ -196,11 +197,14 @@
     <Compile Include="Models\Code\PromotionCode.cs" />
     <Compile Include="Models\Code\SessionHelper.cs" />
     <Compile Include="Models\Code\SupportCode.cs" />
+    <Compile Include="Models\EntityModel\AccessTokenModel.cs" />
     <Compile Include="Models\EntityModel\CartSession.cs" />
+    <Compile Include="Models\EntityModel\CheckoutModel.cs" />
     <Compile Include="Models\EntityModel\DetailProduct.cs" />
     <Compile Include="Models\EntityModel\ManufactoryList.cs" />
     <Compile Include="Models\EntityModel\MenuList.cs" />
     <Compile Include="Models\EntityModel\NewProduct.cs" />
+    <Compile Include="Models\EntityModel\OrderDetail.cs" />
     <Compile Include="Models\EntityModel\ProductList.cs" />
     <Compile Include="Models\EntityModel\ReceiverViewModel.cs" />
     <Compile Include="Models\EntityModel\SpecialProduct.cs" />
@@ -292,7 +296,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -331,6 +337,11 @@
     <Content Include="Views\Support\Index.cshtml" />
     <Content Include="Views\Support\SupportOnline.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Cart\CartContent.cshtml" />
+    <Content Include="Views\Checkout\CheckoutByPayPal.cshtml" />
+    <Content Include="Views\Checkout\CheckoutSuccess.cshtml" />
+    <Content Include="Views\Account\LoginSucess.cshtml" />
+    <Content Include="Views\Account\GetAuthorizationUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

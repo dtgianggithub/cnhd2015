@@ -175,6 +175,167 @@ namespace ESClient.Controllers
             return RedirectToAction("CartContent", "Cart");
         }
 
+        public ActionResult CartContent()
+        {
+            string username = SessionHelper.GetUserSession();
+            List<CartSession> cartsessionlist = null;
+
+            if (username != null)
+            {
+                if (SessionHelper.GetCartSession(username) == null)
+                {
+                    ViewBag.summoney = 0;
+                    return View(cartsessionlist);
+                }
+                else
+                {
+
+                    cartsessionlist = SessionHelper.GetCartSession(username);
+                    ViewBag.summoney = Summoney(cartsessionlist);
+                    return View(cartsessionlist);
+                }
+            }
+            else
+            {
+                if (SessionHelper.GetCartSession("cart") == null)
+                {
+                    ViewBag.summoney = 0;
+                    return View(cartsessionlist);
+                }
+                else
+                {
+
+                    cartsessionlist = SessionHelper.GetCartSession("cart");
+                    ViewBag.summoney = Summoney(cartsessionlist);
+                    return View(cartsessionlist);
+
+                }
+            }
+
+            //return View();
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CartContent(List<CartSession> listcart)
+        {
+            string user_name = SessionHelper.GetUserSession();
+            bool isError = false;
+
+            if (user_name != null)
+            {
+                List<CartSession> listcartsession = SessionHelper.GetCartSession(user_name);
+                //xoa
+                int i = 0;
+                while (i < listcartsession.Count)
+                {
+                    if (listcart[i].daxoa)
+                    {
+                        listcartsession.RemoveAt(i);
+                        listcart.RemoveAt(i);
+
+                    }
+                    else
+                    {
+                        if (listcart[i].soluong > 0 && CheckOverflowCount(listcartsession[i].sp.MA, listcart[i].soluong))
+                        {
+                            listcartsession[i].soluong = listcart[i].soluong;
+                        }
+                        else
+                        {
+                            isError = true;
+                        }
+                        i++;
+                    }
+                }
+
+                //cap nhat sesssion
+                /*
+                for (int j = 0; j < listcartsession.Count; j++)
+                {
+                    listcartsession[j].daxoa = false;
+                }
+
+                SessionHelper.SetCartSession(user_name, listcartsession);
+                 
+                 */
+                if (isError)
+                {
+                    ModelState.AddModelError("", "Số lượng mua không cho phép");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đã cập nhật giỏ hàng");
+                }
+                ViewBag.summoney = Summoney(listcartsession);
+
+                return View(listcartsession);
+
+            }
+            else
+            {
+                List<CartSession> listcartsession = SessionHelper.GetCartSession("cart");
+                //xoa
+                int i = 0;
+                while (i < listcartsession.Count)
+                {
+                    if (listcart[i].daxoa)
+                    {
+                        listcartsession.RemoveAt(i);
+                        listcart.RemoveAt(i);
+
+                    }
+                    else
+                    {
+                        if (listcart[i].soluong > 0 && CheckOverflowCount(listcartsession[i].sp.MA, listcart[i].soluong))
+                        {
+                            listcartsession[i].soluong = listcart[i].soluong;
+                        }
+                        else //<0
+                        {
+                            /*
+                            ModelState.AddModelError("", "Số lượng mua không cho phép");
+                            ViewBag.summoney = Summoney(listcartsession);
+                            return View(listcartsession
+                             */
+                            isError = true;
+                        }
+                        i++;
+                    }
+                }
+
+                /*
+                //cap nhat sesssion
+                for (int j = 0; j < listcartsession.Count; j++)
+                {
+                    listcartsession[j].daxoa = false;
+                }
+                SessionHelper.SetCartSession("cart", listcartsession);
+                 */
+
+                if (isError)
+                {
+                    ModelState.AddModelError("", "Số lượng mua không cho phép");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đã cập nhật giỏ hàng");
+                }
+                ViewBag.summoney = Summoney(listcartsession);
+
+                return View(listcartsession);
+            }
+
+        }
+
+        public bool CheckOverflowCount(string ma, int sl)
+        {
+            var sp = code.GetProduct(ma);
+            if (sl > sp.SOLUONG)
+                return false;
+            return true;
+        }
 
         public int Checkexistproduct(CartSession cartsession, List<CartSession> listCartSession)
         {
@@ -187,7 +348,6 @@ namespace ESClient.Controllers
             }
 
             return -1;
-
         }
 
     }
