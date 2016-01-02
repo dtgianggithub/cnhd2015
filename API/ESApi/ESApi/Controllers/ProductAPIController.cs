@@ -8,6 +8,7 @@ using System.Web.Http;
 using ESApi.Models.ModelEntity;
 using AutoMapper;
 using ESApi.Models.Code;
+using ESApi.Models.ViewModel;
 
 namespace ESApi.Controllers
 {
@@ -28,6 +29,13 @@ namespace ESApi.Controllers
         public IHttpActionResult GetProductsbyNameID(string Name, string ID)
         {
             return Ok(code.GetProductsByType(Name,int.Parse(ID)));
+        }
+
+        [HttpPost]
+        [Route("api/product/SearchAdvance")]
+        public IHttpActionResult SeaarchAdvance([FromBody] SearchModel search)
+        {
+            return Ok(code.GetProductsByMultiType(search));
         }
 
         [HttpGet]

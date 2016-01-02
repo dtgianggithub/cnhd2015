@@ -182,6 +182,7 @@ namespace ESApi.Models.Code
             if (name.Equals("Default")) //hiển thị tất cả sản phẩm
             {
                 list = db.SANPHAMs.Where(sp => sp.DAXOA.Value.Equals(false)).ToList();
+                productList.path = "Sản phẩm";
             }
 
             if (name.Equals("Category")) //lấy theo category
@@ -202,7 +203,7 @@ namespace ESApi.Models.Code
             {
                 productList.path = "Tìm kiếm";
                 string search_string = name;
-                list = db.SANPHAMs.Where(sp => sp.DAXOA.Value.Equals(false)  && (sp.NHASANXUAT1.TEN.Contains(search_string) || sp.TEN.Contains(search_string) || sp.LOAISANPHAM1.TEN.Equals(search_string) || sp.DONGIABAN.ToString().Equals(search_string))).ToList();
+                list = db.SANPHAMs.Where(sp => sp.DAXOA.Value.Equals(false)  && (sp.NHASANXUAT1.TEN.Contains(search_string) || sp.TEN.Contains(search_string) || sp.LOAISANPHAM1.TEN.Equals(search_string))).ToList();
             }
 
             for (int i = 0; i < list.Count; i++)
@@ -220,6 +221,47 @@ namespace ESApi.Models.Code
                 }
             }
 
+            Mapper.CreateMap<SANPHAM, SANPHAMModel>();
+            productList.newList = Mapper.Map<List<SANPHAM>, List<SANPHAMModel>>(list);
+
+            return productList;
+        }
+
+        public ProductList GetProductsByMultiType(SearchModel seach)  //Advance search
+        {
+            ProductList productList = new ProductList();
+            List<SANPHAM> list = new List<SANPHAM>();
+
+            if(seach.KhuyenMai)
+                list = db.SANPHAMs.Where(sp => sp.DAXOA == false && sp.TEN.Contains(seach.Ten) && sp.NHASANXUAT1.TEN.Contains(seach.NhaSanSuat) && sp.LOAISANPHAM1.TEN.Contains(seach.LoaiSanPham) && sp.DONGIABAN >= seach.GiaToiThieu && sp.DONGIABAN < seach.GiaToiDa && sp.SANPHAMBANCHAY == seach.SPBanChay && sp.MAKHUYENMAI != 0).ToList();
+            else
+            {
+
+                list = db.SANPHAMs.Where(sp => sp.DAXOA == false && sp.TEN.Contains(seach.Ten) && sp.NHASANXUAT1.TEN.Contains(seach.NhaSanSuat) && sp.LOAISANPHAM1.TEN.Contains(seach.LoaiSanPham) && sp.DONGIABAN >= seach.GiaToiThieu && sp.DONGIABAN < seach.GiaToiDa && sp.SANPHAMBANCHAY == seach.SPBanChay && sp.MAKHUYENMAI == 0).ToList();
+            }
+
+            if(list.Count > 0)
+                productList.path = "Tìm kiếm nâng cao: có tất cả " + list.Count + " kết quả";
+            else
+            {
+                productList.path = "Tìm kiếm nâng cao: không tìm thấy kết quả nào";
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                int makhuyenmai = list[i].MAKHUYENMAI.Value;
+                if (makhuyenmai != 0)
+                {
+                    var _mkm = db.KHUYENMAIs.Where(km => km.DAXOA.Value.Equals(false) && km.MA.Equals(makhuyenmai)).SingleOrDefault();
+                    double dongiagiam = (double)(list[i].DONGIABAN * (100 - _mkm.NOIDUNG.Value)) / 100;
+                    productList.newListPromotion.Add(dongiagiam);
+                }
+                else
+                {
+                    productList.newListPromotion.Add(0);
+                }
+            }
+            
             Mapper.CreateMap<SANPHAM, SANPHAMModel>();
             productList.newList = Mapper.Map<List<SANPHAM>, List<SANPHAMModel>>(list);
 

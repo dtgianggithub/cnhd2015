@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "AdvanceSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/formstyle.css" rel="stylesheet" />
+
+
+<div style="text-align:center;margin-top:50px;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+        @Html.AntiForgeryToken()
+
+        <ul>
+            <li>
+                <label for="name">Tên sản phẩm</label>
+                @Html.TextBox("TEN", "", new { @class = "search_advance", @placeholder = "Tên sản phẩm", @type = "text", @required = "required" })
+            </li>
+            <br />
+            <li>
+                <label for="phone">Loại sản phẩm</label>
+                @Html.DropDownList("LOAISANPHAM", null, new { @class = "search_drop", @type = "password", @required = "required" })
+
+            </li>
+            <br />
+            <li>
+                <label for="address">Nhà sản xuất</label>
+                @Html.DropDownList("NHASANXUAT", null, new { @class = "search_drop", @type = "password", @required = "required" })
+
+            </li>
+            <br />
+            <li>
+                <label for="address">Giá bán</label>
+                @Html.DropDownList("GIABAN", null, new { @class = "search_drop", @type = "password", @required = "required" })
+
+            </li>
+            <br />
+            <li>
+                <label>@Html.CheckBox("KHUYENMAI", false)Sản phẩm khuyến mãi</label>
+            </li>
+            <li>
+                <label>@Html.CheckBox("BANCHAY", false)Sản phẩm bán chạy</label>
+            </li>
+            <br />
+            <br />
+            <li>
+                <button type="submit" style="align-content:center; margin-left:200px;">Tìm kiếm</button>
+            </li>
+        </ul>
+
+    }
+</div>
+

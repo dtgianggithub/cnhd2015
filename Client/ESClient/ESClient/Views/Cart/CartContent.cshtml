@@ -33,7 +33,7 @@
             {
                 <tr>
                     <td>@(i + 1)</td>
-                    <td><a href="@Url.Action("Details", "Product", new { id = Model[i].sp.MA})"><img width="50" style="overflow:hidden" height="70" src="@Url.Content("~/Content/images/" + Model[i].sp.HINHANH)" alt="iphone" /><br />@Model[i].sp.TEN</a></td>
+                    <td><a href="@Url.Action("Details", "Product", new { id = Model[i].sp.MA})"><img width="50" style="overflow:hidden" height="70" src="@Url.Content("http://i1078.photobucket.com/albums/w491/nguyenhunghau1/" + Model[i].sp.HINHANH)" alt="iphone" /><br />@Model[i].sp.TEN</a></td>
 
                     <td width="100">@Html.TextBoxFor(modelcount => Model[i].soluong, new { @class = "count_product", @type = "number" })</td>
 

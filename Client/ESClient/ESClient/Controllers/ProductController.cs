@@ -10,9 +10,12 @@ namespace ESClient.Controllers
     public class ProductController : Controller
     {
         public ProductCode code = new ProductCode();
+        public SearchCode searchcode = new SearchCode();
         // GET: Product
         public ActionResult Index(string name, int id)
         {
+            if (name == "AdvanceSearch")
+                return View(searchcode.SearchAdvance(TempData["Advance_search"] as SearchModel));
             return View(code.GetProductList(name, id));
         }
 

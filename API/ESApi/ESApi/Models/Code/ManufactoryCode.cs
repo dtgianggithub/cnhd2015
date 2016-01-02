@@ -21,5 +21,16 @@ namespace ESApi.Models.Code
             list.listNhaSanXuat = Mapper.Map<List<NHASANXUAT>, List<NHASANXUATModel>>(listNhaSanXuat);
             return list;
         }
+
+        public List<NHASANXUATModel> GetAllNSX()
+        {
+            List<NHASANXUATModel> list = new List<NHASANXUATModel>();
+
+            var listNhaSanXuat = db.NHASANXUATs.Where(nsx => nsx.DAXOA.Value.Equals(false)).ToList();
+
+            Mapper.CreateMap<NHASANXUAT, NHASANXUATModel>();
+            list = Mapper.Map<List<NHASANXUAT>, List<NHASANXUATModel>>(listNhaSanXuat);
+            return list;
+        }
     }
 }

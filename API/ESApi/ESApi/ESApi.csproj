@@ -146,6 +146,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountAPIController.cs" />
     <Compile Include="Controllers\CartAPIController.cs" />
+    <Compile Include="Controllers\CategoryAPIController.cs" />
     <Compile Include="Controllers\ManufactoryAPIController.cs" />
     <Compile Include="Controllers\MenuAPIController.cs" />
     <Compile Include="Controllers\OrderAPIController.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="Models\ViewModel\OrderDetail.cs" />
     <Compile Include="Models\ViewModel\ProductList.cs" />
     <Compile Include="Models\ViewModel\ReceiveViewModel.cs" />
+    <Compile Include="Models\ViewModel\SearchModel.cs" />
     <Compile Include="Models\ViewModel\SpecialProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -51,8 +51,6 @@ namespace ESClient.Models.Code
                 "api/order/add",
                 order
             ).Result;
-
-            Console.WriteLine(response.StatusCode.ToString());
         }
     }
 }
