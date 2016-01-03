@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
+using ESApi.Models.ModelEntity;
 
 namespace ESClient.Models.Code
 {
@@ -26,5 +27,6 @@ namespace ESClient.Models.Code
             manulist = response.Content.ReadAsAsync<ManufactoryList>().Result;
             return manulist;
         }
+
     }
 }

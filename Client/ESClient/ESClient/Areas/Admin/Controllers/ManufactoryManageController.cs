@@ -6,15 +6,15 @@ using System.Web.Mvc;
 
 namespace ESClient.Areas.Admin.Controllers
 {
-    public class CategoryManageController : Controller
+    public class ManufactoryManageController : Controller
     {
-        // GET: Admin/CategoryManage
+        // GET: Admin/ManufactoryManage
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Detail()
+        public ActionResult Edit(string MA)
         {
             return View();
         }

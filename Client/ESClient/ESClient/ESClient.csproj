@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{024629DC-096F-4ECE-9DDC-49CAE6D58FF4}</ProjectGuid>
+    <ProjectGuid>{0D4BD4C5-58ED-4AD0-93B8-DC18972EA6DA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -40,10 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -51,8 +47,6 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -78,30 +72,30 @@
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -113,74 +107,77 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManufactoryManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufactoryController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Controllers\SupportController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Models\Code\API.cs" />
     <Compile Include="Models\Code\CheckoutCode.cs" />
     <Compile Include="Models\Code\DataModel\CHITIETDONHANGModel.cs" />
@@ -195,8 +192,8 @@
     <Compile Include="Models\Code\DataModel\THANHVIENModel.cs" />
     <Compile Include="Models\Code\DataModel\TRANGTHAIDONHANGModel.cs" />
     <Compile Include="Models\Code\ManufactoryCode.cs" />
-    <Compile Include="Models\Code\ProductCode.cs" />
     <Compile Include="Models\Code\MenuCode.cs" />
+    <Compile Include="Models\Code\ProductCode.cs" />
     <Compile Include="Models\Code\PromotionCode.cs" />
     <Compile Include="Models\Code\SearchCode.cs" />
     <Compile Include="Models\Code\SearchModel.cs" />
@@ -213,10 +210,17 @@
     <Compile Include="Models\EntityModel\ProductList.cs" />
     <Compile Include="Models\EntityModel\ReceiverViewModel.cs" />
     <Compile Include="Models\EntityModel\SpecialProduct.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\bootstrap-social.css" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -375,6 +379,7 @@
     <Content Include="Areas\Admin\Asset\bower_components\datatables-plugins\type-detection\ip-address.js" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-plugins\type-detection\num-html.js" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-plugins\type-detection\numeric-comma.js" />
+    <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\css\dataTables.responsive.css" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\docs\api\responsive.index%28%29.xml" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\docs\api\responsive.rebuild%28%29.xml" />
@@ -428,6 +433,7 @@
     <Content Include="Areas\Admin\Asset\bower_components\flot.tooltip\js\jquery.flot.tooltip.js" />
     <Content Include="Areas\Admin\Asset\bower_components\flot.tooltip\js\jquery.flot.tooltip.min.js" />
     <Content Include="Areas\Admin\Asset\bower_components\flot.tooltip\js\jquery.flot.tooltip.source.js" />
+    <Content Include="Areas\Admin\Asset\bower_components\flot\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\examples\ajax\index.html" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\examples\annotating\index.html" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\examples\axes-interacting\index.html" />
@@ -485,15 +491,19 @@
     <Content Include="Areas\Admin\Asset\bower_components\flot\jquery.flot.time.js" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\jquery.js" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\LICENSE.txt" />
+    <Content Include="Areas\Admin\Asset\bower_components\font-awesome\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\css\font-awesome.css" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\css\font-awesome.min.css" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Asset\bower_components\holderjs\.gitattributes" />
+    <Content Include="Areas\Admin\Asset\bower_components\holderjs\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\gulpfile.js" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\holder.js" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\src\augment.js" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\src\holder.js" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\src\ondomready.js" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\src\polyfills.js" />
+    <Content Include="Areas\Admin\Asset\bower_components\holderjs\test\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\test\image.jpg" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\test\index.html" />
     <Content Include="Areas\Admin\Asset\bower_components\jquery\dist\jquery.js" />
@@ -592,6 +602,7 @@
     <Content Include="Areas\Admin\Asset\bower_components\mocha\media\logo.svg" />
     <Content Include="Areas\Admin\Asset\bower_components\mocha\mocha.css" />
     <Content Include="Areas\Admin\Asset\bower_components\mocha\mocha.js" />
+    <Content Include="Areas\Admin\Asset\bower_components\morrisjs\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\examples\area-as-line.html" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\examples\area.html" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\examples\bar-colors.html" />
@@ -663,10 +674,97 @@
     <Content Include="Content\css\style_login.css" />
     <Content Include="Content\css\table_cart.css" />
     <Content Include="Content\css\table_detail.css" />
+    <Content Include="Content\images\addtocart.gif" />
+    <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\bann1.jpg" />
+    <Content Include="Content\images\bann2.jpg" />
+    <Content Include="Content\images\bar_bg.gif" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\bg.png" />
+    <Content Include="Content\images\bg2.png" />
+    <Content Include="Content\images\big_pic.jpg" />
+    <Content Include="Content\images\blue-add.png" />
+    <Content Include="Content\images\camera.png" />
+    <Content Include="Content\images\car.png" />
+    <Content Include="Content\images\cart.gif" />
+    <Content Include="Content\images\cart_bg.gif" />
+    <Content Include="Content\images\checked.png" />
+    <Content Include="Content\images\compare.gif" />
+    <Content Include="Content\images\contact-new.png" />
+    <Content Include="Content\images\contact_bt.gif" />
+    <Content Include="Content\images\cross.png" />
+    <Content Include="Content\images\csscreme.jpg" />
+    <Content Include="Content\images\de.gif" />
+    <Content Include="Content\images\details_box_bottom.gif" />
+    <Content Include="Content\images\details_box_center.gif" />
+    <Content Include="Content\images\details_box_top.gif" />
+    <Content Include="Content\images\details_bt_bg.gif" />
+    <Content Include="Content\images\details_bt_bg.png" />
+    <Content Include="Content\images\DT001.jpg" />
+    <Content Include="Content\images\DT002.png" />
+    <Content Include="Content\images\DT003.jpg" />
+    <Content Include="Content\images\DT004.jpg" />
+    <Content Include="Content\images\DT005.jpg" />
+    <Content Include="Content\images\en.gif" />
+    <Content Include="Content\images\favorites.gif" />
+    <Content Include="Content\images\favorites.png" />
+    <Content Include="Content\images\favs.gif" />
+    <Content Include="Content\images\favs.png" />
+    <Content Include="Content\images\footer_bg.gif" />
+    <Content Include="Content\images\footer_logo.png" />
+    <Content Include="Content\images\header_bg.jpg" />
+    <Content Include="Content\images\header_divider.png" />
+    <Content Include="Content\images\home.png" />
+    <Content Include="Content\images\icons.png" />
+    <Content Include="Content\images\ic_search.ico" />
+    <Content Include="Content\images\iphone.png" />
+    <Content Include="Content\images\L001.jpg" />
+    <Content Include="Content\images\L002.png" />
+    <Content Include="Content\images\L003.jpg" />
+    <Content Include="Content\images\L004.jpg" />
+    <Content Include="Content\images\L005.jpg" />
+    <Content Include="Content\images\L006.png" />
+    <Content Include="Content\images\L007.jpg" />
+    <Content Include="Content\images\L008.jpg" />
+    <Content Include="Content\images\laptop.gif" />
+    <Content Include="Content\images\laptop.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu_bg.gif" />
+    <Content Include="Content\images\menu_divider.gif" />
+    <Content Include="Content\images\menu_left.gif" />
+    <Content Include="Content\images\menu_right.gif" />
+    <Content Include="Content\images\menu_title_bg.gif" />
+    <Content Include="Content\images\navbullet.png" />
+    <Content Include="Content\images\p1.gif" />
+    <Content Include="Content\images\p2.gif" />
+    <Content Include="Content\images\p4.gif" />
+    <Content Include="Content\images\p5.gif" />
+    <Content Include="Content\images\pag_bg.gif" />
+    <Content Include="Content\images\pag_bg.png" />
+    <Content Include="Content\images\pag_bg_a.gif" />
+    <Content Include="Content\images\pag_bg_a.png" />
+    <Content Include="Content\images\payment.gif" />
+    <Content Include="Content\images\PK001.jpg" />
+    <Content Include="Content\images\PK002.jpg" />
+    <Content Include="Content\images\PK003.jpg" />
+    <Content Include="Content\images\products_details_bg.gif" />
+    <Content Include="Content\images\product_box_bottom.gif" />
+    <Content Include="Content\images\product_box_center.gif" />
+    <Content Include="Content\images\product_box_top.gif" />
+    <Content Include="Content\images\search-icon.png" />
+    <Content Include="Content\images\search.gif" />
+    <Content Include="Content\images\services.png" />
+    <Content Include="Content\images\shoppingcart.png" />
+    <Content Include="Content\images\skype.jpg" />
+    <Content Include="Content\images\square-blue-add.gif" />
+    <Content Include="Content\images\thumb1.gif" />
+    <Content Include="Content\images\thumb2.gif" />
+    <Content Include="Content\images\top_search_bg.gif" />
+    <Content Include="Content\images\tw.png" />
+    <Content Include="Content\images\user_add.png" />
     <Content Include="Content\js\boxOver.js" />
     <Content Include="Content\js\windowopen.js" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -724,6 +822,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -751,22 +850,6 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Scripts\contactController.js" />
-    <Content Include="Scripts\controllers\alert-ctrl.js" />
-    <Content Include="Scripts\controllers\master-ctrl.js" />
-    <Content Include="Scripts\errors.json" />
-    <Content Include="Scripts\angular-touch.min.js.map" />
-    <Content Include="Scripts\angular-sanitize.min.js.map" />
-    <Content Include="Scripts\angular-route.min.js.map" />
-    <Content Include="Scripts\angular-resource.min.js.map" />
-    <Content Include="Scripts\angular-messages.min.js.map" />
-    <Content Include="Scripts\angular-message-format.min.js.map" />
-    <Content Include="Scripts\angular-loader.min.js.map" />
-    <Content Include="Scripts\angular-cookies.min.js.map" />
-    <Content Include="Scripts\angular-aria.min.js.map" />
-    <Content Include="Scripts\angular-animate.min.js.map" />
-    <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Content\bootstrap-3.3.6-dist\css\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-3.3.6-dist\css\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-3.3.6-dist\css\bootstrap.css.map" />
@@ -775,11 +858,21 @@
     <Content Include="Content\bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap-3.3.6-dist\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-message-format.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\.bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\.editorconfig" />
-    <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\bootstrap-social.less" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\bootstrap-social.scss" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\bower.json" />
@@ -940,7 +1033,6 @@
     <Content Include="Areas\Admin\Asset\bower_components\datatables-plugins\README.md" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-plugins\sorting\.DS_Store" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\.bower.json" />
-    <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\css\dataTables.responsive.scss" />
     <Content Include="Areas\Admin\Asset\bower_components\datatables-responsive\examples\.DS_Store" />
@@ -955,7 +1047,6 @@
     <Content Include="Areas\Admin\Asset\bower_components\flot.tooltip\.bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\flot.tooltip\bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\.bower.json" />
-    <Content Include="Areas\Admin\Asset\bower_components\flot\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\.travis.yml" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\API.md" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\component.json" />
@@ -995,7 +1086,6 @@
     <Content Include="Areas\Admin\Asset\bower_components\flot\PLUGINS.md" />
     <Content Include="Areas\Admin\Asset\bower_components\flot\README.md" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\.bower.json" />
-    <Content Include="Areas\Admin\Asset\bower_components\font-awesome\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\.npmignore" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -1031,14 +1121,11 @@
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\scss\_stacked.scss" />
     <Content Include="Areas\Admin\Asset\bower_components\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\.bower.json" />
-    <Content Include="Areas\Admin\Asset\bower_components\holderjs\.gitattributes" />
-    <Content Include="Areas\Admin\Asset\bower_components\holderjs\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\.jshintrc" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\composer.json" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\package.json" />
     <Content Include="Areas\Admin\Asset\bower_components\holderjs\README.md" />
-    <Content Include="Areas\Admin\Asset\bower_components\holderjs\test\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\jquery\.bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\jquery\bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\jquery\dist\jquery.min.map" />
@@ -1054,7 +1141,6 @@
     <Content Include="Areas\Admin\Asset\bower_components\mocha\LICENSE" />
     <Content Include="Areas\Admin\Asset\bower_components\mocha\Readme.md" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\.bower.json" />
-    <Content Include="Areas\Admin\Asset\bower_components\morrisjs\.gitignore" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\.travis.yml" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\bower.json" />
     <Content Include="Areas\Admin\Asset\bower_components\morrisjs\bower.travis.json" />
@@ -1088,8 +1174,17 @@
     <Content Include="Areas\Admin\Asset\less\mixins.less" />
     <Content Include="Areas\Admin\Asset\less\sb-admin-2.less" />
     <Content Include="Areas\Admin\Asset\less\variables.less" />
+    <Content Include="Areas\Admin\Views\CategoryManage\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManufactoryManage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ManufactoryManage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\contactController.js" />
+    <Content Include="Scripts\controllers\alert-ctrl.js" />
+    <Content Include="Scripts\controllers\Manufactory.js" />
+    <Content Include="Scripts\controllers\master-ctrl.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -1845,9 +1940,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1862,37 +1955,46 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Slide\Index.cshtml" />
-    <Content Include="Views\Menu\Index.cshtml" />
-    <Content Include="Views\Product\SpecialProduct.cshtml" />
-    <Content Include="Views\Product\NewProduct.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Manufactory\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Checkout\Index.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Support\Index.cshtml" />
-    <Content Include="Views\Support\SupportOnline.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Scripts\version.json" />
     <Content Include="Views\Cart\CartContent.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Checkout\CheckoutByPayPal.cshtml" />
     <Content Include="Views\Checkout\CheckoutSuccess.cshtml" />
-    <Content Include="Views\Account\LoginSucess.cshtml" />
-    <Content Include="Views\Account\GetAuthorizationUser.cshtml" />
-    <Content Include="Scripts\version.json" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Manufactory\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\NewProduct.cshtml" />
+    <Content Include="Views\Product\SpecialProduct.cshtml" />
     <Content Include="Views\Search\AdvanceSearch.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Slide\Index.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\Support\SupportOnline.cshtml" />
+    <Content Include="Views\Account\LoginSucess.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1905,9 +2007,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1925,9 +2024,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>13172</DevelopmentServerPort>
+          <DevelopmentServerPort>31858</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:13172/</IISUrl>
+          <IISUrl>http://localhost:31858/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

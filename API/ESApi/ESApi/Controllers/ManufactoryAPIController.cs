@@ -28,5 +28,12 @@ namespace ESApi.Controllers
         {
             return Ok(Manu.GetAllNSX());
         }
+
+        [HttpGet]
+        [Route("api/Manufactory/ByID/{ID}")]
+        public IHttpActionResult GetManu(string ID)
+        {
+            return Ok(Manu.GetNSX(int.Parse(ID)));
+        }
     }
 }
