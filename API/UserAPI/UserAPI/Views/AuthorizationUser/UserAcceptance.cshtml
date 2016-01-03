@@ -1,0 +1,47 @@
+﻿@model UserAPI.Models.UNGDUNG
+@{
+    ViewBag.Title = "UserAcceptance";
+}
+
+
+
+<div class="container">
+    <h2>Review Permission</h2>
+    <p>Read careful this information and make your decision !</p>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">Application @Model.TEN</div>
+            <div class="panel-body">
+
+                <a href="@Model.DOMAINURL">Visit</a>
+
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">Request Permission</div>
+            <div class="panel-body">
+                Read:<br />
+                - Id<br />
+                - Name<br />
+                - Date of Birth<br />
+                - Email<br />
+                - Address<br />
+                - Phone Number<br />
+                <br />
+
+                @using (@Html.BeginForm("UserAcceptance", "AuthorizationUser", FormMethod.Post, new { @role = "form" }))
+                {
+
+                    <input type="submit" value="Accept" name="Authorize" class="btn btn-primary" />
+                     <input type="submit" value="Deny" name="Authorize" class="btn btn-primary" />
+
+                }
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+

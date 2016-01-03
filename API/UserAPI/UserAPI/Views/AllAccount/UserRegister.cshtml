@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "UserRegister";
+}
+
+
+@ViewBag.Message <br />
+
+@using (@Html.BeginForm("UserRegister", "AllAccount", FormMethod.Post, new { @role = "form" }))
+{
+    List<SelectListItem> listGender = new List<SelectListItem>();
+    listGender.Add(new SelectListItem
+    {
+        Text = "Male",
+        Value = "Male",
+        Selected = true
+    });
+    listGender.Add(new SelectListItem
+    {
+        Text = "Female",
+        Value = "Female",
+        
+    });
+   
+
+    <div class="form-group">
+        <label for="pwd">Username:</label>
+        @Html.TextBox("username", null, new { @class = "form-control", @type = "email", placeholder = "example@gmail.com" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        @Html.Password("password", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Repeat Password:</label>
+        @Html.Password("repeatpassword", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Name:</label>
+        @Html.TextBox("name", null, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="pwd">Date of Birth:</label>
+        @Html.TextBox("date", null, new { @class = "form-control", @type = "date" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="pwd">Gender:</label>
+        @Html.DropDownList("gender", listGender, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Address:</label>
+        @Html.TextBox("address", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Phone:</label>
+        @Html.TextBox("phone", null, new { @class = "form-control" , @type = "number" })
+    </div>
+
+
+
+    <input type="submit" value="Signup" class="btn btn-primary" />
+
+}
+
+

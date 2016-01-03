@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ApplicationLogin";
+}
+
+@ViewBag.Message <br />
+
+@using (@Html.BeginForm("ApplicationLogin", "AllAccount", FormMethod.Post, new { @role = "form" }))
+{
+
+
+    <div class="form-group">
+        <label for="pwd">Applicationname:</label>
+        @Html.TextBox("applicationname", null, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        @Html.Password("password", null, new { @class = "form-control" })
+    </div>
+
+
+    <a href="@Url.Action("ApplicationRegister", "AllAccount")">Register now</a> <br /> <br />
+
+    <input type="submit" value="Login" class="btn btn-primary" />
+
+}
+

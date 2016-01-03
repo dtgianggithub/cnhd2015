@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "ApplicationRegister";
+}
+
+@ViewBag.Message <br />
+
+@using (@Html.BeginForm("ApplicationRegister", "AllAccount", FormMethod.Post, new { @role = "form" }))
+{
+   
+
+
+    <div class="form-group">
+        <label for="pwd">Application Name:</label>
+        @Html.TextBox("applicationname", null, new { @class = "form-control", @type = "email", placeholder = "example@gmail.com" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="pwd">Application Password:</label>
+        @Html.Password("applicationpassword", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Repeat Password:</label>
+        @Html.Password("repeatpassword", null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Name of App in client:</label>
+        @Html.TextBox("name", null, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        <label for="pwd">Domain url:</label>
+        @Html.TextBox("domain", null, new { @class = "form-control" })
+    </div>
+
+
+  
+    <input type="submit" value="Signup" class="btn btn-primary" />
+
+}
+
+
