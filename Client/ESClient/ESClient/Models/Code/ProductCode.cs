@@ -1,6 +1,7 @@
 ﻿using ESClient.Models.DataModel;
 using ESClient.Models.EntityModel;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -100,5 +101,40 @@ namespace ESClient.Models.Code
             productList = response.Content.ReadAsAsync<ProductList>().Result;
             return productList;
         }
+
+        public double Summoney(List<CartSession> listcartsession)
+        {
+            double sum = 0;
+            foreach (var item in listcartsession)
+            {
+                sum += (double)(item.sp.DONGIABAN) * (item.soluong);
+            }
+
+            return sum;
+        }
+
+
+        public int Checkexistproduct(CartSession cartsession, List<CartSession> listCartSession)
+        {
+            for (int i = 0; i < listCartSession.Count; i++)
+            {
+                if (cartsession.sp.MA == listCartSession[i].sp.MA)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+
+        public bool CheckOverflowCount(string ma, int sl)
+        {
+            var sp = GetProduct(ma);
+            if (sl > sp.SOLUONG)
+                return false;
+            return true;
+        }
+
     }
 }

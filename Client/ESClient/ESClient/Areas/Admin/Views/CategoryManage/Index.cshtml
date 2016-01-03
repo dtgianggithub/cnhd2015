@@ -4,8 +4,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div ng-app="myapp" class=" row" >
-    <div class="col-lg-12" ng-categorycontroller="StudentController">
+<div ng-app="ProductApp" class=" row">
+    <div class="col-lg-12" ng-controller="ProductController">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Danh mục sản phẩm
@@ -24,12 +24,14 @@
                             <tr>
                                 <th>Mã danh mục</th>
                                 <th>Tên danh mục</th>
-                                <th>{{$scope}}</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="categories in contacts">
-                                <td>sdfs</td>
+                            <tr ng-repeat="cata in products">
+                                <td>{{cata.MA}}</td>
+                                <td>{{cata.TEN}}</td>
+                                <td>{{cata.DAXOA}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -38,6 +40,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    var app = angular.module("ProductApp", []);
+    app.controller("ProductController", function ($scope, $http) {
+        $http.get('http://localhost:7009/api/Manufactory/AllManu').
+          success(function (data, status, headers, config) {
+              $scope.products = data;
+
+          }).
+          error(function (data, status, headers, config) {
+              alert("erro");
+          });
+    });
+</script>
 
 
 

@@ -30,7 +30,7 @@ namespace ESClient.Controllers
                 {
 
                     cartsessionlist = SessionHelper.GetCartSession(username);
-                    ViewBag.summoney = Summoney(cartsessionlist);
+                    ViewBag.summoney = code.Summoney(cartsessionlist);
                     return PartialView(cartsessionlist);
                 }
             }
@@ -45,24 +45,14 @@ namespace ESClient.Controllers
                 {
 
                     cartsessionlist = SessionHelper.GetCartSession("cart");
-                    ViewBag.summoney = Summoney(cartsessionlist);
+                    ViewBag.summoney = code.Summoney(cartsessionlist);
                     return PartialView(cartsessionlist);
 
                 }
             }
         }
 
-        public double Summoney(List<CartSession> listcartsession)
-        {
-            double sum = 0;
-            foreach (var item in listcartsession)
-            {
-                sum += (double)(item.sp.DONGIABAN) * (item.soluong);
-            }
-
-            return sum;
-        }
-
+        
         public ActionResult AddCart(string id)
         {
             string username = SessionHelper.GetUserSession();
@@ -103,7 +93,7 @@ namespace ESClient.Controllers
                     cartsession.daxoa = false;
 
                     List<CartSession> cartsessionlist = SessionHelper.GetCartSession(username);
-                    int i = Checkexistproduct(cartsession, cartsessionlist);
+                    int i = code.Checkexistproduct(cartsession, cartsessionlist);
                     if (i == -1)
                     {
                         cartsessionlist.Add(cartsession);
@@ -156,7 +146,7 @@ namespace ESClient.Controllers
                     cartsession.daxoa = false;
 
                     List<CartSession> cartsessionlist = SessionHelper.GetCartSession("cart");
-                    int i = Checkexistproduct(cartsession, cartsessionlist);
+                    int i = code.Checkexistproduct(cartsession, cartsessionlist);
                     if (i == -1)
                     {
                         cartsessionlist.Add(cartsession);
@@ -191,7 +181,7 @@ namespace ESClient.Controllers
                 {
 
                     cartsessionlist = SessionHelper.GetCartSession(username);
-                    ViewBag.summoney = Summoney(cartsessionlist);
+                    ViewBag.summoney = code.Summoney(cartsessionlist);
                     return View(cartsessionlist);
                 }
             }
@@ -206,7 +196,7 @@ namespace ESClient.Controllers
                 {
 
                     cartsessionlist = SessionHelper.GetCartSession("cart");
-                    ViewBag.summoney = Summoney(cartsessionlist);
+                    ViewBag.summoney = code.Summoney(cartsessionlist);
                     return View(cartsessionlist);
 
                 }
@@ -238,7 +228,7 @@ namespace ESClient.Controllers
                     }
                     else
                     {
-                        if (listcart[i].soluong > 0 && CheckOverflowCount(listcartsession[i].sp.MA, listcart[i].soluong))
+                        if (listcart[i].soluong > 0 && code.CheckOverflowCount(listcartsession[i].sp.MA, listcart[i].soluong))
                         {
                             listcartsession[i].soluong = listcart[i].soluong;
                         }
@@ -268,7 +258,7 @@ namespace ESClient.Controllers
                 {
                     ModelState.AddModelError("", "Đã cập nhật giỏ hàng");
                 }
-                ViewBag.summoney = Summoney(listcartsession);
+                ViewBag.summoney = code.Summoney(listcartsession);
 
                 return View(listcartsession);
 
@@ -288,31 +278,17 @@ namespace ESClient.Controllers
                     }
                     else
                     {
-                        if (listcart[i].soluong > 0 && CheckOverflowCount(listcartsession[i].sp.MA, listcart[i].soluong))
+                        if (listcart[i].soluong > 0 && code.CheckOverflowCount(listcartsession[i].sp.MA, listcart[i].soluong))
                         {
                             listcartsession[i].soluong = listcart[i].soluong;
                         }
                         else //<0
                         {
-                            /*
-                            ModelState.AddModelError("", "Số lượng mua không cho phép");
-                            ViewBag.summoney = Summoney(listcartsession);
-                            return View(listcartsession
-                             */
                             isError = true;
                         }
                         i++;
                     }
                 }
-
-                /*
-                //cap nhat sesssion
-                for (int j = 0; j < listcartsession.Count; j++)
-                {
-                    listcartsession[j].daxoa = false;
-                }
-                SessionHelper.SetCartSession("cart", listcartsession);
-                 */
 
                 if (isError)
                 {
@@ -322,33 +298,13 @@ namespace ESClient.Controllers
                 {
                     ModelState.AddModelError("", "Đã cập nhật giỏ hàng");
                 }
-                ViewBag.summoney = Summoney(listcartsession);
+                ViewBag.summoney = code.Summoney(listcartsession);
 
                 return View(listcartsession);
             }
 
         }
 
-        public bool CheckOverflowCount(string ma, int sl)
-        {
-            var sp = code.GetProduct(ma);
-            if (sl > sp.SOLUONG)
-                return false;
-            return true;
-        }
-
-        public int Checkexistproduct(CartSession cartsession, List<CartSession> listCartSession)
-        {
-            for (int i = 0; i < listCartSession.Count; i++)
-            {
-                if (cartsession.sp.MA == listCartSession[i].sp.MA)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
 
     }
 }

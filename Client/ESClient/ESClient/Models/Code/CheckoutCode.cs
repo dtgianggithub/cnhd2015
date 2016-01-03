@@ -15,18 +15,18 @@ namespace ESClient.Models.Code
             //kiem tra coi da dang nhap hay chua de hien thi View tuong ung
             string username = SessionHelper.GetUserSession();
             CheckoutModel checkout = new CheckoutModel();
-            //if (username != null)
-            //{
-            //    checkout.listCartSession = SessionHelper.GetCartSession(username);
-            //    checkout.user = (from u in db.THANHVIENs where u.TENDANGNHAP == username select u).SingleOrDefault();
-            //    ViewBag.summoney = Summoney(checkout.listCartSession);
-            //    return View(checkout);
-            //}
-            //else
-            //{
-            checkout.listCartSession = SessionHelper.GetCartSession("cart");
-            return checkout;
-            //}
+            if (username != null)
+            {
+                checkout.listCartSession = SessionHelper.GetCartSession(username);
+                //checkout.user = (from u in db.THANHVIENs where u.TENDANGNHAP == username select u).SingleOrDefault();
+                //ViewBag.summoney = Summoney(checkout.listCartSession);
+                return checkout;
+            }
+            else
+            {
+                checkout.listCartSession = SessionHelper.GetCartSession("cart");
+                return checkout;
+            }
 
         }
 

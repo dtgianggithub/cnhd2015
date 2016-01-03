@@ -1,10 +1,12 @@
 ﻿(function () {
    
 
-    var StudentApp = angular.module('myapp', []);
+    var app = angular.module('myapp', []);
 
-    StudentApp.controller('StudentController', function ($scope) {
+    app.controller('StudentController', function ($scope) {
         $scope.message = "Infrgistics";
     });
+
+
 })();
 
