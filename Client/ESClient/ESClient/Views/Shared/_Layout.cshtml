@@ -14,11 +14,13 @@
     <!--Bootstrap-->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("head", required: false)
+    @RenderSection("scripts", required: false)
 </head>
 <body>
     <div id="main_container">
         <div class="top_bar">
-            @*@{Html.RenderAction("Index", "Account");}*@
+            @{Html.RenderAction("Index", "Accounts");}
             @{Html.RenderAction("Index", "Search");}
         </div>
         <div id="header">
@@ -34,6 +36,7 @@
             <div id="menu_tab">
                 <div class="left_menu_corner"></div>
                 @{Html.RenderAction("Index", "Menu");}
+
 
                 <div class="right_menu_corner"></div>
             </div>

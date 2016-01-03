@@ -13,6 +13,9 @@ namespace ESClient.Controllers
 
         public ActionResult Index()
         {
+            //kiểm tra coi login chưa ?
+            
+
             return View(code.GetHomeList());
         }
 

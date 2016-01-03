@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -167,6 +171,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManufactoryManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -207,6 +212,7 @@
     <Compile Include="Models\EntityModel\MenuList.cs" />
     <Compile Include="Models\EntityModel\NewProduct.cs" />
     <Compile Include="Models\EntityModel\OrderDetail.cs" />
+    <Compile Include="Models\EntityModel\ProductCraw.cs" />
     <Compile Include="Models\EntityModel\ProductList.cs" />
     <Compile Include="Models\EntityModel\ReceiverViewModel.cs" />
     <Compile Include="Models\EntityModel\SpecialProduct.cs" />
@@ -214,6 +220,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EntityModel\UserModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1995,6 +2002,12 @@
     <Content Include="Views\Support\SupportOnline.cshtml" />
     <Content Include="Views\Account\LoginSucess.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Accounts\LoginSucess.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Accounts\UpdateAccount.cshtml" />
+    <Content Include="Views\Support\Crawler.cshtml" />
+    <Content Include="Views\Support\CralerNavigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

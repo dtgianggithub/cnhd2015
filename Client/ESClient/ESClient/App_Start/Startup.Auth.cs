@@ -63,6 +63,13 @@ namespace ESClient
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "432132333950-5q7cal1fdlpmdgth1erti1a8dlmvf4j4.apps.googleusercontent.com",
+                ClientSecret = "pBBgj-LjHy5GIa1tObIKlCyj"
+            });
         }
     }
 }

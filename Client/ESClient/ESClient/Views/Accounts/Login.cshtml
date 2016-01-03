@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using Microsoft.Owin.Security
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+@using (@Html.BeginForm("Login", "Accounts", FormMethod.Post, new { @role = "form" }))
+{
+
+    <input type="submit" value="Login with GH" name="logintype" class="btn btn-primary" />
+
+
+}
+
+
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+
+    using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.returnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="socialLoginList">
+            <p>
+                @foreach (AuthenticationDescription p in loginProviders)
+                {
+                    <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                }
+            </p>
+        </div>
+    }
+
+}

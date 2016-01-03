@@ -9,7 +9,7 @@ namespace ESClient.Models.Code
     {
         public static string GetUrlAPI()
         {
-            return "http://localhost:7009/";
+            return "http://apicnhd.somee.com/";
         }
     }
 }

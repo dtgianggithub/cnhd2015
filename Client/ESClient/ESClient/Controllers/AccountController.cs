@@ -455,6 +455,8 @@ namespace ESClient.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
+           // SessionHelper.SetUserSession(User.Identity.GetUserName());
+            //SessionHelper.SetTypeLoginSession("GG");
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);

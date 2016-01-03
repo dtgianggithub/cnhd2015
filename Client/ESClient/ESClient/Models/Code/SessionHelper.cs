@@ -26,6 +26,42 @@ namespace ESClient.Models.Code
         }
 
 
+        public static void SetTypeLoginSession(string type)
+        {
+            HttpContext.Current.Session["type"] = type;
+        }
+
+        public static string GetTypeLoginSession()
+        {
+            var session = HttpContext.Current.Session["type"];
+
+            if (session == null)
+                return null;
+            else
+            {
+                return session as string;
+            }
+        }
+
+
+        public static void SetAccessTokenSession(string accesstoken)
+        {
+            HttpContext.Current.Session["access"] = accesstoken;
+
+        }
+
+        public static string GetAccessTokenSession()
+        {
+            var session = HttpContext.Current.Session["access"];
+
+            if (session == null)
+                return null;
+            else
+            {
+                return session as string;
+            }
+        }
+
 
         public static List<CartSession> GetCartSession(string username)
         {
