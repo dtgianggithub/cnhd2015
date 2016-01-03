@@ -15,34 +15,27 @@ namespace ESApi.Controllers.Admin
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AdminOrderFormDetailAPIController : ApiController
     {
-        ESDBEntities db = new ESDBEntities();
+        AdminOrderFormDetailCode ad = new AdminOrderFormDetailCode();
+
+        [HttpGet]
+        [Route("api/admin/orderformdetail/all")]
+        public IHttpActionResult GetAll()
+        {
+            return Ok(ad.getall());
+        }
+
+        [HttpGet]
+        [Route("api/admin/orderformdetail/byID/{ID1}/{ID2}")]
+        public IHttpActionResult GetId([FromUri]string id1, [FromUri]string id2)
+        {
+            return Ok(ad.getId(id1, id2));
+        }
 
         [HttpPut]
         [Route("api/admin/orderformdetail/update")]
         public IHttpActionResult Update([FromBody]CHITIETDONHANGModel news_dh)
         {
-            Mapper.CreateMap<CHITIETDONHANGModel, CHITIETDONHANG>();
-            CHITIETDONHANG _news_dh = Mapper.Map<CHITIETDONHANGModel, CHITIETDONHANG>(news_dh);
-            CHITIETDONHANG dh = (from s in db.CHITIETDONHANGs where (s.DONHANG == _news_dh.DONHANG && s.SANPHAM == _news_dh.SANPHAM) select s).First();
-
-            dh.DONHANG = _news_dh.DONHANG;
-            dh.SANPHAM = _news_dh.SANPHAM;
-            dh.SOLUONG = _news_dh.SOLUONG;
-            dh.THANHTIEN = _news_dh.THANHTIEN;
-            dh.DAXOA = _news_dh.DAXOA;
-
-            db.SaveChanges();
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("api/admin/orderformdetail/delete")]
-        public IHttpActionResult Delete([FromUri]string iddh, [FromUri]string idsp )
-        {
-            CHITIETDONHANG dh = (from s in db.CHITIETDONHANGs where (s.DONHANG == iddh && s.SANPHAM == idsp) select s).First();
-            dh.DAXOA = true;
-            db.SaveChanges();
-
+            ad.update(news_dh);
             return Ok();
         }
     }

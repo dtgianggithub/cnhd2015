@@ -15,16 +15,27 @@ namespace ESApi.Controllers.Admin
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AdminPromotionAPIController : ApiController
     {
-        ESDBEntities db = new ESDBEntities();
+        AdminPromotionCode ad = new AdminPromotionCode();
+
+        [HttpGet]
+        [Route("api/admin/promotion/all")]
+        public IHttpActionResult GetAll()
+        {
+            return Ok(ad.getall());
+        }
+
+        [HttpGet]
+        [Route("api/admin/promotion/byID/{ID}")]
+        public IHttpActionResult GetId([FromUri]int id)
+        {
+            return Ok(ad.getId(id));
+        }
 
         [HttpPost]
         [Route("api/admin/promotion/add")]
         public IHttpActionResult Add([FromBody]KHUYENMAIModel km)
         {
-            Mapper.CreateMap<KHUYENMAIModel, KHUYENMAI>();
-            KHUYENMAI _km = Mapper.Map<KHUYENMAIModel, KHUYENMAI>(km);
-            db.KHUYENMAIs.Add(_km);
-            db.SaveChanges();
+            ad.add(km);
 
             return Ok();
         }
@@ -33,27 +44,7 @@ namespace ESApi.Controllers.Admin
         [Route("api/admin/promotion/update")]
         public IHttpActionResult Update([FromBody]KHUYENMAIModel news_km)
         {
-            Mapper.CreateMap<KHUYENMAIModel, KHUYENMAI>();
-            KHUYENMAI _news_km = Mapper.Map<KHUYENMAIModel, KHUYENMAI>(news_km);
-            KHUYENMAI km = (from s in db.KHUYENMAIs where s.MA == _news_km.MA select s).First();
-
-            km.MA = _news_km.MA;
-            km.NGAYBATDAU = _news_km.NGAYKETTHUC;
-            km.NGAYKETTHUC = _news_km.NGAYKETTHUC;
-            km.NOIDUNG = _news_km.NOIDUNG;
-            km.DAXOA = _news_km.DAXOA;
-
-            db.SaveChanges();
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("api/admin/promotion/delete")]
-        public IHttpActionResult Delete([FromUri]int id)
-        {
-            KHUYENMAI km = (from s in db.KHUYENMAIs where s.MA == id select s).First();
-            km.DAXOA = true;
-            db.SaveChanges();
+            ad.update(news_km);
 
             return Ok();
         }

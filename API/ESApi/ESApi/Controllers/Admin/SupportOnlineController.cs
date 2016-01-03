@@ -11,42 +11,39 @@ using AutoMapper;
 using System.Web.Http.Cors;
 
 
-namespace ESApi.Models.Code.Admin
+namespace ESApi.Controllers.Admin
 {
-    [EnableCors(origins: "*",headers:"*",methods: "*")]
-    public class AdminManufactoryController : ApiController
+    public class SupportOnlineController : AccountAPIController
     {
-        AdminManufactoryCode ad = new AdminManufactoryCode();
+        AdminSupportOnlineCode ad = new AdminSupportOnlineCode();
 
         [HttpGet]
-        [Route("api/admin/manufactory/all")]
+        [Route("api/admin/supportonline/all")]
         public IHttpActionResult GetAll()
         {
             return Ok(ad.getall());
         }
 
         [HttpGet]
-        [Route("api/admin/manufactory/byID/{ID}")]
+        [Route("api/admin/supportonline/byID/{ID}")]
         public IHttpActionResult GetId([FromUri]int id)
         {
             return Ok(ad.getId(id));
         }
 
         [HttpPost]
-        [Route("api/admin/manufactory/add")]
-        public IHttpActionResult Add([FromBody]NHASANXUATModel sx)
+        [Route("api/admin/supportonline/add")]
+        public IHttpActionResult Add([FromBody]HOTROONLINE ht)
         {
-            ad.add(sx);
-
+            ad.add(ht);
             return Ok();
         }
 
         [HttpPut]
-        [Route("api/admin/manufactory/update")]
-        public IHttpActionResult Update([FromBody]NHASANXUATModel news_sx)
+        [Route("api/admin/supportonline/update")]
+        public IHttpActionResult Update([FromBody]HOTROONLINE news_ht)
         {
-            ad.update(news_sx);
-
+            ad.update(news_ht);
             return Ok();
         }
     }

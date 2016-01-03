@@ -15,16 +15,27 @@ namespace ESApi.Controllers.Admin
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AdminTypetypeproductAPIController : ApiController
     {
-        ESDBEntities db = new ESDBEntities();
+        AdminTypeProductCode ad = new AdminTypeProductCode();
+
+        [HttpGet]
+        [Route("api/admin/typeproduct/all")]
+        public IHttpActionResult GetAll()
+        {
+            return Ok(ad.getall());
+        }
+
+        [HttpGet]
+        [Route("api/admin/typeproduct/byID/{ID}")]
+        public IHttpActionResult GetId([FromUri]int id)
+        {
+            return Ok(ad.getId(id));
+        }
 
         [HttpPost]
         [Route("api/admin/typeproduct/add")]
         public IHttpActionResult Add([FromBody]LOAISANPHAMModel lsp)
         {
-            Mapper.CreateMap<LOAISANPHAMModel, LOAISANPHAM>();
-            LOAISANPHAM _lsp = Mapper.Map<LOAISANPHAMModel, LOAISANPHAM>(lsp);
-            db.LOAISANPHAMs.Add(_lsp);
-            db.SaveChanges();
+            ad.add(lsp);
 
             return Ok();
         }
@@ -33,26 +44,7 @@ namespace ESApi.Controllers.Admin
         [Route("api/admin/typeproduct/update")]
         public IHttpActionResult Update([FromBody]LOAISANPHAMModel news_lsp)
         {
-            Mapper.CreateMap<LOAISANPHAMModel, LOAISANPHAM>();
-            LOAISANPHAM _news_lsp = Mapper.Map<LOAISANPHAMModel, LOAISANPHAM>(news_lsp);
-            LOAISANPHAM lsp = (from s in db.LOAISANPHAMs where s.MA == _news_lsp.MA select s).First();
-
-            lsp.MA = _news_lsp.MA;
-            lsp.TEN = _news_lsp.TEN;
-            lsp.DAXOA = _news_lsp.DAXOA;
-
-            db.SaveChanges();
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("api/admin/typeproduct/delete")]
-        public IHttpActionResult Delete([FromUri]int id)
-        {
-            LOAISANPHAM lsp = (from s in db.LOAISANPHAMs where s.MA == id select s).First();
-            lsp.DAXOA = true;
-            db.SaveChanges();
-
+            ad.update(news_lsp);
             return Ok();
         }
     }
