@@ -8,7 +8,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                LINK API
+                NHÀ  SẢN XUẤT
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -29,8 +29,12 @@
                                 <td>{{manu.TEN}}</td>
                                 <td>{{manu.DAXOA}}</td>
                                 <td>
-                                    <a data-ng-href="@Url.Action("Edit", "ManufactoryManage")/{{manu.MA}}" >Sửa</a>
-                                </td>
+                                    @{
+                                        var url = Url.Action("Edit", "ManufactoryManage", new { id = "{{manu.MA}}" });
+                                        url = HttpUtility.UrlDecode(url);
+                                    }
+                                    <a data-ng-href="@url">Sửa</a>
+                                 </td>
                             </tr>
                         </tbody>
                     </table>
