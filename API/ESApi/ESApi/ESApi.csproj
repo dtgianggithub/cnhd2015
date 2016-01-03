@@ -145,6 +145,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminCartAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminManufactoryController.cs" />
+    <Compile Include="Controllers\Admin\AdminMemberAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminOrderFormAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminOrderFormDetailAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminProductAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminPromotionAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminTypeMemberController.cs" />
+    <Compile Include="Controllers\Admin\AdminTypeProductAPIController.cs" />
     <Compile Include="Controllers\CartAPIController.cs" />
     <Compile Include="Controllers\CategoryAPIController.cs" />
     <Compile Include="Controllers\ManufactoryAPIController.cs" />
