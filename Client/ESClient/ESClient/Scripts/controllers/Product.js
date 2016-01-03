@@ -1,11 +1,11 @@
 ﻿(function () {
     var app = angular.module('myapp', []);
-    var url =  "http://localhost:7009/";
+    var url = "http://localhost:7009/";
 
-    app.controller("ManufactoryManage", function ($scope, $http) {
+    app.controller("ProductManage", function ($scope, $http) {
         $http.get(url + 'api/Manufactory/AllManu').
           success(function (data, status, headers, config) {
-              $scope.manus = data;
+              $scope.products = data;
 
           }).
           error(function (data, status, headers, config) {
@@ -13,8 +13,8 @@
           });
     });
 
-    app.controller("EditManufactory", function ($scope, $http) {
-        
+    app.controller("EditProduct", function ($scope, $http) {
+
         $scope.init = function (Ma) {
 
             $http.get(url + 'api/Manufactory/ByID/' + Ma).
@@ -31,11 +31,11 @@
                 var data = { "MA": $scope.Ma, "TEN": Ten, "DAXOA": xoa };
 
                 $http.put(url + 'api/admin/manufactory/update', data).
-                    success(function(data, status, headers, config) {
+                    success(function (data, status, headers, config) {
                         alert('Cập nhật nhà sản xuất thành công');
                     });
             } else {
-                
+
                 alert("Vui lòng điền đầy đủ thông tin");
             }
         }

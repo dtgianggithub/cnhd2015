@@ -17,7 +17,8 @@ namespace ESClient
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.js",
                          "~/Scripts/contactController.js",
-                         "~/Scripts/controllers/Manufactory.js"));
+                         "~/Scripts/controllers/Manufactory.js",
+                         "~/Scripts/controllers/Category.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

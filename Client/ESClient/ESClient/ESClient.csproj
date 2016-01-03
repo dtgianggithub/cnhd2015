@@ -877,6 +877,8 @@
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\controllers\Category.js" />
+    <Content Include="Scripts\controllers\Product.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\.bower.json" />
@@ -1190,6 +1192,8 @@
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\ManufactoryManage\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductManage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CategoryManage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CategoryManage\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactController.js" />
     <Content Include="Scripts\controllers\alert-ctrl.js" />
