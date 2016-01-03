@@ -12,5 +12,7 @@ namespace ESClient.Models.EntityModel
         public string altimg { get; set; }
         public string name { get; set; }
         public string detail { get; set; }
+        public string url { get; set; }
+        public string type { get; set; }
     }
 }

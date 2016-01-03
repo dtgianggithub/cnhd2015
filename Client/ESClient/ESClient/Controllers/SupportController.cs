@@ -67,9 +67,19 @@ namespace ESClient.Controllers
                             //lấy thẻ figure
                             HtmlNode figure = item.SelectSingleNode(".//figure");
                             pro.detail = figure.InnerText;
-                            ViewBag.src = imageText;
-                            ViewBag.name = name.InnerText;
-                            ViewBag.figure = figure.InnerText;
+                            
+                            //lấy tất cả thẻ a
+                            HtmlNodeCollection aCollection = item.SelectNodes(".//a");
+                            foreach (var itema in aCollection)
+                            {
+                                //lấy thẻ đầu tiên
+                                pro.url= itema.Attributes["href"].Value;
+                                break;
+                            }
+
+                            pro.type = "laptop";
+
+
                             list.Add(pro);
                         }
 
@@ -118,9 +128,18 @@ namespace ESClient.Controllers
                             //lấy thẻ figure
                             HtmlNode figure = item.SelectSingleNode(".//figure");
                             pro.detail = figure.InnerText;
-                            ViewBag.src = imageText;
-                            ViewBag.name = name.InnerText;
-                            ViewBag.figure = figure.InnerText;
+
+                            //lấy tất cả thẻ a
+                            HtmlNodeCollection aCollection = item.SelectNodes(".//a");
+                            foreach (var itema in aCollection)
+                            {
+                                //lấy thẻ đầu tiên
+                                pro.url = itema.Attributes["href"].Value;
+                                break;
+                            }
+
+                            pro.type = type;
+
                             list.Add(pro);
                         }
 
