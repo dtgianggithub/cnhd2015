@@ -8,9 +8,11 @@ using AutoMapper;
 using ESApi.Models.Code.Admin;
 using ESApi.Models.ModelEntity;
 using ESApi.Models;
+using System.Web.Http.Cors;
 
 namespace ESApi.Controllers.Admin
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AdminProductAPIController : ApiController
     {
         ESDBEntities db = new ESDBEntities();

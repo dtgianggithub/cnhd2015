@@ -8,13 +8,27 @@ using ESApi.Models.Code.Admin;
 using ESApi.Models.ModelEntity;
 using ESApi.Models;
 using AutoMapper;
+using System.Web.Http.Cors;
 
 
 namespace ESApi.Models.Code.Admin
 {
+    [EnableCors(origins: "*",headers:"*",methods: "*")]
     public class AdminManufactoryController : ApiController
     {
         ESDBEntities db = new ESDBEntities();
+
+        [HttpGet]
+        [Route("api/admin/manufactory/all")]
+        public IHttpActionResult GetAll()
+        {
+            List<NHASANXUAT> listNhaSanXuat = db.NHASANXUATs.ToList();
+
+            Mapper.CreateMap<NHASANXUAT, NHASANXUATModel>();
+            List<NHASANXUATModel> listNSX = Mapper.Map<List<NHASANXUAT>, List<NHASANXUATModel>>(listNhaSanXuat);
+
+            return Ok(listNSX);
+        }
 
         [HttpPost]
         [Route("api/admin/manufactory/add")]
