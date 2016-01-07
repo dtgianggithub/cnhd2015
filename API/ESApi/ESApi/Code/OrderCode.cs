@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ESApi.Models.ModelEntity;
 using ESApi.Models.ViewModel;
 
 namespace ESApi.Models.Code
@@ -14,28 +15,28 @@ namespace ESApi.Models.Code
             string idcreated = "";
             //lấy mã số đơn hàng cuối cùng trong bảng
             DONHANG lastitem = db.DONHANGs.ToList().Last();
-            if (lastitem != null)
-            {
-                //tien hanh tach chuoi de lay 3 so cuoi cung
-                string lastitemid = lastitem.MA.ToString();
-                string idfigure = lastitemid.Substring(1);
-                int figure = int.Parse(idfigure);
-                figure++;
-                if (figure <= 99) //  co 2 chu so
-                {
-                    idcreated = "A0" + figure;
-                }
-                else
-                {
-                    idcreated = "A" + figure;
-                }
-            }
-            else
-            {
-                idcreated = "A001";
-            }
+            //if (lastitem != null)
+            //{
+            //    //tien hanh tach chuoi de lay 3 so cuoi cung
+            //    string lastitemid = lastitem.MA.ToString();
+            //    string idfigure = lastitemid.Substring(1);
+            //    int figure = int.Parse(idfigure);
+            //    figure++;
+            //    if (figure <= 99) //  co 2 chu so
+            //    {
+            //        idcreated = "A0" + figure;
+            //    }
+            //    else
+            //    {
+            //        idcreated = "A" + figure;
+            //    }
+            //}
+            //else
+            //{
+            //    idcreated = "A001";
+            //}
 
-            return idcreated;
+            return int.Parse(lastitem.MA) + 1 + "";
         }
 
         public void AddOrder(OrderDetail receiver)
@@ -86,6 +87,5 @@ namespace ESApi.Models.Code
                 }
             }
         }
-
     }
 }

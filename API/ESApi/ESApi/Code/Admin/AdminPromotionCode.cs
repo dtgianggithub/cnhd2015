@@ -53,7 +53,7 @@ namespace ESApi.Models.Code.Admin
 
             km.NGAYBATDAU = news_km.NGAYBATDAU;
             km.NGAYKETTHUC = news_km.NGAYKETTHUC;
-            km.NOIDUNG = news_km.NOIDUNG;
+            km.NOIDUNG = _news_km.NOIDUNG;
             km.DAXOA = news_km.DAXOA;
 
             db.SaveChanges();

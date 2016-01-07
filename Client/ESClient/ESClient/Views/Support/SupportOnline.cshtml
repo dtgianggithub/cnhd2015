@@ -4,7 +4,7 @@
 }
 @using ESClient.Models;
 
-<div class="border_box">
+<div class="border_box" style="min-height: 200px;overflow: hidden">
     @foreach (var item in Model)
     {
         string link_skype = "skype:" + item.SKYPE + "?chat";

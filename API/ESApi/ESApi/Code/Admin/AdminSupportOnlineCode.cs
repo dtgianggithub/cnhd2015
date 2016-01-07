@@ -18,7 +18,7 @@ namespace ESApi.Models.Code.Admin
         public HOTROONLINE getId(int id)
         {
             HOTROONLINE sx = new HOTROONLINE();
-            var _sx = (from s in db.HOTROONLINEs where s.MA == id select s).First();
+            var _sx = (from s in db.HOTROONLINEs where s.MA == id select s).SingleOrDefault();
 
             return sx;
         }

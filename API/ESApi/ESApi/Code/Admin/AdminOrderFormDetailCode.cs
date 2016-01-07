@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Web.Http.Cors;
 using AutoMapper;
 using ESApi.Models.ModelEntity;
 using ESApi.Models;
 
 namespace ESApi.Models.Code.Admin
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AdminOrderFormDetailCode
     {
         ESDBEntities db = new ESDBEntities();
@@ -22,11 +24,11 @@ namespace ESApi.Models.Code.Admin
             return _listdh;
         }
 
-        public CHITIETDONHANGModel getId(string iddh, string idsp)
+        public CHITIETDONHANGModel getId(string iddh)
         {
             CHITIETDONHANGModel dh = new CHITIETDONHANGModel();
 
-            var _dh = (from s in db.CHITIETDONHANGs where (s.DONHANG == iddh && s.SANPHAM == idsp) select s).First();
+            var _dh = (from s in db.CHITIETDONHANGs where (s.DONHANG == iddh ) select s).First();
 
             Mapper.CreateMap<CHITIETDONHANG, CHITIETDONHANGModel>();
             dh = Mapper.Map<CHITIETDONHANG, CHITIETDONHANGModel>(_dh);
@@ -45,6 +47,14 @@ namespace ESApi.Models.Code.Admin
             dh.THANHTIEN = _news_dh.THANHTIEN;
             dh.DAXOA = _news_dh.DAXOA;
 
+            db.SaveChanges();
+        }
+
+        public void add(CHITIETDONHANGModel news_dh)
+        {
+            Mapper.CreateMap<CHITIETDONHANGModel, CHITIETDONHANG>();
+            CHITIETDONHANG _news_dh = Mapper.Map<CHITIETDONHANGModel, CHITIETDONHANG>(news_dh);
+            db.CHITIETDONHANGs.Add(_news_dh);
             db.SaveChanges();
         }
     }

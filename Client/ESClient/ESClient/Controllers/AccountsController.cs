@@ -74,8 +74,8 @@ namespace ESClient.Controllers
             if (type == "GG")
             {
                 //do somthing
-               // Session["username"] = null;
-                //Session["type"] = null;
+                Session["username"] = null;
+                Session["type"] = null;
 
                 AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             }
@@ -173,7 +173,7 @@ namespace ESClient.Controllers
             }
             else
             {
-                return RedirectToAction("Error", "Account");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }

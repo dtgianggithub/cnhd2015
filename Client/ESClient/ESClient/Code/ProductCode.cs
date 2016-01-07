@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using PagedList;
 
 namespace ESClient.Models.Code
 {
@@ -24,6 +25,7 @@ namespace ESClient.Models.Code
 
             HttpResponseMessage response = c.GetAsync("api/product/all").Result;
             productList = response.Content.ReadAsAsync<ProductList>().Result;
+           
             return productList;
         }
 
@@ -87,7 +89,7 @@ namespace ESClient.Models.Code
             return detail;
         }
 
-        public ProductList GetProductList(string name, int id)
+        public ProductList GetProductList(string name, int id,int ? page)
         {
             ProductList productList = new ProductList();
 
@@ -97,8 +99,22 @@ namespace ESClient.Models.Code
                 new MediaTypeWithQualityHeaderValue("application/json")
             );
 
-            HttpResponseMessage response = c.GetAsync("api/product/ByNameID/" + name + "/" + id).Result;
-            productList = response.Content.ReadAsAsync<ProductList>().Result;
+            if (SessionHelper.GetProductSession(name + id) == null)
+            {
+                HttpResponseMessage response = c.GetAsync("api/product/ByNameID/" + name + "/" + id).Result;
+                productList = response.Content.ReadAsAsync<ProductList>().Result;
+                SessionHelper.SetProductSession(productList, name + id);
+            }
+            else
+            {
+                productList = SessionHelper.GetProductSession(name + id);
+
+            }
+        
+           
+            int pageNum = (page ?? 1);
+            productList.newPageList = productList.newList.ToPagedList(pageNum, 9);
+           
             return productList;
         }
 

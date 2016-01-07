@@ -11,12 +11,16 @@ namespace ESClient.Areas.Admin.Controllers
         // GET: Admin/ManufactoryManage
         public ActionResult Index()
         {
+            if (Session["login"] == null)
+                return RedirectToAction("Index", "AccountAdmin");
             ViewBag.Info = "";
             return View();
         }
 
         public ActionResult Edit(int id)
         {
+            if (Session["login"] == null)
+                return RedirectToAction("Index", "AccountAdmin");
             ViewBag.Ma = id;
             return View();
         }
@@ -31,6 +35,8 @@ namespace ESClient.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
+            if (Session["login"] == null)
+                return RedirectToAction("Index", "AccountAdmin");
             return View();
         }
 

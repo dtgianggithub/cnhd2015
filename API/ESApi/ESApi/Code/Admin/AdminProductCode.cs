@@ -12,6 +12,8 @@ namespace ESApi.Models.Code.Admin
     public class AdminProductCode
     {
         ESDBEntities db = new ESDBEntities();
+        AdminManufactoryCode code = new AdminManufactoryCode();
+        private AdminTypeProductCode typecode = new AdminTypeProductCode();
 
         public List<SANPHAMModel> getall()
         {
@@ -19,6 +21,12 @@ namespace ESApi.Models.Code.Admin
 
             Mapper.CreateMap<SANPHAM, SANPHAMModel>();
             List<SANPHAMModel> _listSP = Mapper.Map<List<SANPHAM>, List<SANPHAMModel>>(listSP);
+
+            for (int i = 0; i < listSP.Count; i++)
+            {
+                _listSP[i].TENNHASANXUAT = code.GetNameManufactory(listSP[i].NHASANXUAT.Value);
+                _listSP[i].TENLOAISANPHAM = typecode.GetNameType(listSP[i].LOAISANPHAM.Value);
+            }
             return _listSP;
         }
 
@@ -30,6 +38,8 @@ namespace ESApi.Models.Code.Admin
 
             Mapper.CreateMap<SANPHAM, SANPHAMModel>();
             sp = Mapper.Map<SANPHAM,SANPHAMModel>(_sp);
+            sp.TENNHASANXUAT = code.GetNameManufactory(sp.NHASANXUAT);
+            sp.TENLOAISANPHAM = typecode.GetNameType(sp.LOAISANPHAM);
             return sp;
         }
 
@@ -53,11 +63,11 @@ namespace ESApi.Models.Code.Admin
             sp.DONGIABAN = _news_sp.DONGIABAN;
             sp.HINHANH = _news_sp.HINHANH;
             sp.SOLUONG = _news_sp.SOLUONG;
-            sp.LOAISANPHAM = _news_sp.LOAISANPHAM;
+            sp.LOAISANPHAM = news_sp.LOAISANPHAM; //typecode.GetIDType(news_sp.TENLOAISANPHAM);
             sp.SANPHAMMOI = _news_sp.SANPHAMMOI;
-            sp.NHASANXUAT = _news_sp.NHASANXUAT;
+            sp.NHASANXUAT = code.GetIDManufactory(news_sp.TENNHASANXUAT);
             sp.SANPHAMBANCHAY = _news_sp.SANPHAMBANCHAY;
-            sp.KHUYENMAI = _news_sp.KHUYENMAI;
+            sp.MAKHUYENMAI = _news_sp.MAKHUYENMAI;
             sp.DAXOA = _news_sp.DAXOA;
 
             db.SaveChanges();

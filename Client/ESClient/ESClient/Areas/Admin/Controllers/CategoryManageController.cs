@@ -11,12 +11,15 @@ namespace ESClient.Areas.Admin.Controllers
         // GET: Admin/CategoryManage
         public ActionResult Index()
         {
+            if (Session["login"] == null)
+                return RedirectToAction("Index", "AccountAdmin");
             ViewBag.Info = "";
             return View();
         }
 
         public ActionResult Edit(int id)
         {
+            
             ViewBag.Ma = id;
             return View();
         }
@@ -26,7 +29,7 @@ namespace ESClient.Areas.Admin.Controllers
         public ActionResult Edit()
         {
             ViewBag.Info = "Cập nhật thành công";
-            return RedirectToAction("Index", "ManufactoryManage");
+            return RedirectToAction("Index", "CategoryManage");
         }
 
         public ActionResult Create()
@@ -38,7 +41,7 @@ namespace ESClient.Areas.Admin.Controllers
         public ActionResult Create(FormCollection form)
         {
             ViewBag.Info = "Thêm mới thành công";
-            return RedirectToAction("Index", "ManufactoryManage");
+            return RedirectToAction("Index", "CategoryManage");
         }
     }
 }

@@ -3,6 +3,8 @@ using ESClient.Models.EntityModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -62,10 +64,12 @@ namespace ESClient.Controllers
                 {
                      order.TotalMoney = code.Summoney(order.listCartSession);
                      order.receive = receiver;
-                     
+
+                     code.AddOrder(order);
+                    SendNotificationEmail(SessionHelper.GetUserSession(),order.TotalMoney);
                      //xóa session giỏ hàng và người nhận đi.
-                     HttpContext.Session["receiver"] = null;
-                     HttpContext.Session[username] = null;
+                     Session["receiver"] = null;
+                     Session[username] = null;
                 }
             }
             else
@@ -75,7 +79,7 @@ namespace ESClient.Controllers
                 {
                     order.TotalMoney = code.Summoney(order.listCartSession);
                     order.receive = receiver;
-
+                    code.AddOrder(order);
                     //xóa session giỏ hàng và người nhận đi.
                     HttpContext.Session["receiver"] = null;
                     HttpContext.Session[username] = null;
@@ -85,7 +89,46 @@ namespace ESClient.Controllers
             return View();
         }
 
+        public bool SendNotificationEmail(string ToEmail, double total)  // Get password from Email
+        {
+            try
+            {
+                // MailMessage class is present is System.Net.Mail namespace
+                MailMessage mailMessage = new MailMessage("dtgiang1994@gmail.com", ToEmail);
 
-       
+
+                // StringBuilder class is present in System.Text namespace
+                StringBuilder sbEmailBody = new StringBuilder();
+                sbEmailBody.Append("Chào bạn,<br/><br/>");
+                sbEmailBody.Append("Bạn vừa mua thành công sản phẩm từ cửa hàng chúng tôi.");
+                sbEmailBody.Append("<br/>");
+                sbEmailBody.Append("Đơn hàng có giá trị là :");
+                sbEmailBody.Append(total.ToString());
+                sbEmailBody.Append("<br/><br/>");
+
+
+                mailMessage.IsBodyHtml = true;
+
+                mailMessage.Body = sbEmailBody.ToString();
+                mailMessage.Subject = "Thông báo mua hàng thành công";
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                smtpClient.Credentials = new System.Net.NetworkCredential()
+                {
+                    UserName = "dtgiang1994@gmail.com",
+                    Password = "hogojqklbjpupbqm"
+                };
+
+                smtpClient.EnableSsl = true;
+                smtpClient.Send(mailMessage);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
     }
 }

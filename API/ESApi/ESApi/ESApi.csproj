@@ -165,6 +165,7 @@
     <Compile Include="Controllers\Admin\AdminPromotionAPIController.cs" />
     <Compile Include="Controllers\Admin\AdminTypeMemberController.cs" />
     <Compile Include="Controllers\Admin\AdminTypeProductAPIController.cs" />
+    <Compile Include="Controllers\Admin\AdminAccountController.cs" />
     <Compile Include="Controllers\Admin\SupportOnlineController.cs" />
     <Compile Include="Controllers\CartAPIController.cs" />
     <Compile Include="Controllers\CategoryAPIController.cs" />
@@ -181,20 +182,21 @@
     <Compile Include="Models\CHITIETDONHANG.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Code\AccountCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminManufactoryCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminOrderFormCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminOrderFormDetailCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminProductCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminPromotionCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminSupportOnlineCode.cs" />
-    <Compile Include="Models\Code\Admin\AdminTypeProductCode.cs" />
-    <Compile Include="Models\Code\ManufactoryCode.cs" />
-    <Compile Include="Models\Code\MenuCode.cs" />
-    <Compile Include="Models\Code\OrderCode.cs" />
-    <Compile Include="Models\Code\ProductCode.cs" />
-    <Compile Include="Models\Code\PromotionCode.cs" />
-    <Compile Include="Models\Code\SupportCode.cs" />
+    <Compile Include="Code\AccountCode.cs" />
+    <Compile Include="Code\Admin\AdminAccountCode.cs" />
+    <Compile Include="Code\Admin\AdminManufactoryCode.cs" />
+    <Compile Include="Code\Admin\AdminOrderFormCode.cs" />
+    <Compile Include="Code\Admin\AdminOrderFormDetailCode.cs" />
+    <Compile Include="Code\Admin\AdminProductCode.cs" />
+    <Compile Include="Code\Admin\AdminPromotionCode.cs" />
+    <Compile Include="Code\Admin\AdminSupportOnlineCode.cs" />
+    <Compile Include="Code\Admin\AdminTypeProductCode.cs" />
+    <Compile Include="Code\ManufactoryCode.cs" />
+    <Compile Include="Code\MenuCode.cs" />
+    <Compile Include="Code\OrderCode.cs" />
+    <Compile Include="Code\ProductCode.cs" />
+    <Compile Include="Code\PromotionCode.cs" />
+    <Compile Include="Code\SupportCode.cs" />
     <Compile Include="Models\DONHANG.cs">
       <DependentUpon>ESDB.tt</DependentUpon>
     </Compile>

@@ -12,11 +12,12 @@ namespace ESClient.Controllers
         public ProductCode code = new ProductCode();
         public SearchCode searchcode = new SearchCode();
         // GET: Product
-        public ActionResult Index(string name, int id)
+        public ActionResult Index(string name, int id, int ? page)
         {
+            ViewBag.name = name;
             if (name == "AdvanceSearch")
                 return View(searchcode.SearchAdvance(TempData["Advance_search"] as SearchModel));
-            return View(code.GetProductList(name, id));
+            return View(code.GetProductList(name, id, page));
         }
 
         [ChildActionOnly]

@@ -1,9 +1,9 @@
 ﻿(function () {
     var app = angular.module('myapp', []);
-    var url =  "http://localhost:7009/";
+    var url = "http://apicnhd.somee.com/";
 
     app.controller("ManufactoryManage", function ($scope, $http) {
-        $http.get(url + 'api/Manufactory/AllManu').
+        $http.get(url + 'api/admin/manufactory/all').
           success(function (data, status, headers, config) {
               $scope.manus = data;
 
@@ -17,7 +17,7 @@
         
         $scope.init = function (Ma) {
 
-            $http.get(url + 'api/Manufactory/ByID/' + Ma).
+            $http.get(url + 'api/admin/manufactory/byID/' + Ma).
           success(function (data, status, headers, config) {
               $scope.Ma = data.MA;
               $scope.Ten = data.TEN;

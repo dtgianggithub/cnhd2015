@@ -6,6 +6,7 @@ using System.Web;
 using ESApi.Models.ModelEntity;
 using ESClient.Models.DataModel;
 using ESClient.Models.EntityModel;
+using PagedList;
 
 namespace ESClient.Models.Code
 {
@@ -72,6 +73,9 @@ namespace ESClient.Models.Code
 
             HttpResponseMessage response = c.PostAsJsonAsync( "api/product/SearchAdvance",search).Result;
             list = response.Content.ReadAsAsync<ProductList>().Result;
+
+            list.newPageList = list.newList.ToPagedList(1, 20);
+           
             return list;
         }
     }

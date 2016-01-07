@@ -13,6 +13,7 @@ using System.Web.Http.Cors;
 
 namespace ESApi.Controllers.Admin
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class SupportOnlineController : AccountAPIController
     {
         AdminSupportOnlineCode ad = new AdminSupportOnlineCode();

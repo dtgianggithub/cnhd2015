@@ -33,6 +33,18 @@ namespace ESApi.Models.Code.Admin
             return sx;
         }
 
+        public string GetNameManufactory(int MA)
+        {
+            var manu = db.NHASANXUATs.Where(sp => sp.MA == MA).SingleOrDefault();
+            return manu.TEN;
+        }
+
+        public int GetIDManufactory(string name)
+        {
+            var manu = db.NHASANXUATs.Where(sp => sp.TEN == name).SingleOrDefault();
+            return manu.MA;
+        }
+
         public void add(NHASANXUATModel sx)
         {
             Mapper.CreateMap<NHASANXUATModel, NHASANXUAT>();

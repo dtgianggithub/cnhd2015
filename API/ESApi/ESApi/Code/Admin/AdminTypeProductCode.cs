@@ -33,6 +33,18 @@ namespace ESApi.Models.Code.Admin
             return sx;
         }
 
+        public string GetNameType(int MA)
+        {
+            var manu = db.LOAISANPHAMs.Where(sp => sp.MA == MA).SingleOrDefault();
+            return manu.TEN;
+        }
+
+        public int GetIDType(string name)
+        {
+            var manu = db.LOAISANPHAMs.Where(sp => sp.TEN == name).SingleOrDefault();
+            return manu.MA;
+        }
+
         public void add(LOAISANPHAMModel sx)
         {
             Mapper.CreateMap<LOAISANPHAMModel, LOAISANPHAM>();

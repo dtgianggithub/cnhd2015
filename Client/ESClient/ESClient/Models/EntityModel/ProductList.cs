@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
 
 namespace ESClient.Models.EntityModel
 {
     public class ProductList
     {
         public List<SANPHAMModel> newList { get; set; }
+        public IPagedList<SANPHAMModel> newPageList { get; set; }
         public List<double> newListPromotion { get; set; }
         public List<SANPHAMModel> specialList { get; set; }
         public List<double> specialListPromotion { get; set; }

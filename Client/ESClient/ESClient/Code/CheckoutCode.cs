@@ -46,7 +46,11 @@ namespace ESClient.Models.Code
         {
             // HTTP POST
             HttpClient c = new HttpClient();
-
+            c.BaseAddress = new Uri(API.GetUrlAPI());
+            c.DefaultRequestHeaders.Accept.Clear();
+            c.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json")
+            );
             HttpResponseMessage response = c.PostAsJsonAsync(
                 "api/order/add",
                 order

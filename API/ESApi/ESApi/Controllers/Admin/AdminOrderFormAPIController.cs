@@ -39,5 +39,13 @@ namespace ESApi.Controllers.Admin
             ad.update(news_dh);
             return Ok();
         }
+
+        [HttpPost]
+        [Route("api/admin/orderform/add")]
+        public IHttpActionResult Add([FromBody]DONHANGModel news_dh)
+        {
+            ad.add(news_dh);
+            return Ok();
+        }
     }
 }

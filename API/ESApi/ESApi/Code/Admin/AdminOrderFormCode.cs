@@ -52,5 +52,13 @@ namespace ESApi.Models.Code.Admin
 
             db.SaveChanges();
         }
+
+       public void add(DONHANGModel news_dh)
+       {
+           Mapper.CreateMap<DONHANGModel, DONHANG>();
+           DONHANG _news_dh = Mapper.Map<DONHANGModel, DONHANG>(news_dh);
+           db.DONHANGs.Add(_news_dh);
+           db.SaveChanges();
+       }
     }
 }

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="~/Scripts/controllers/Support.js"></script>
+<div ng-app="myapp" class="row" ng-controller="SupportManage">
+    <div class="col-lg-12">
+        <div class="panel panel-default " style="font-size: 10pt;">
+            <div class="panel-heading">
+                HỖ TRỢ ONLINE
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <span>
+                            @Html.ActionLink("Thêm hỗ trợ mới", "Create")
+                        </span>
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Skype ID</th>
+                                <th>Tên</th>
+                                <th>Đã xóa</th>
+                                <td>Chức năng</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in supports">
+                                <td>{{item.MA}}</td>
+                                <td>{{item.SKYPE}}</td>
+                                <td>{{item.TEN}}</td>
+                                <td>{{item.DAXOA}}</td>
+
+                                <td>
+                                    @{
+                                        var url = Url.Action("Edit", "SupportAdmin", new { id = "{{item.MA}}" });
+                                        url = HttpUtility.UrlDecode(url);
+                                    }
+                                    <a data-ng-href="@url">Sửa</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+>
+
+
+

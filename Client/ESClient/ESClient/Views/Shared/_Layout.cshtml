@@ -10,7 +10,9 @@
     <link href="~/Content/css/table_detail.css" rel="stylesheet" />
     <link href="~/Content/css/table_cart.css" rel="stylesheet" />
     <link href="~/Content/css/Media.css" rel="stylesheet" />
-    <link href="~/Content/css/style_button.css" rel="stylesheet" />
+    <link href="~/Content/css/style_button.css" rel="stylesheet"/>
+    <link href="~/Content/PagedList.css" rel="stylesheet"/>
+
     <!--Bootstrap-->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -20,8 +22,11 @@
 <body>
     <div id="main_container">
         <div class="top_bar">
-            @{Html.RenderAction("Index", "Accounts");}
-            @{Html.RenderAction("Index", "Search");}
+            <div style="margin-right: 100px;">
+                @{Html.RenderAction("Index", "Accounts");}
+                @{Html.RenderAction("Index", "Search");}
+            </div>
+
         </div>
         <div id="header">
             <div id="logo"> <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/images/logo.png")" alt="" border="0" width="237" height="140" /></a> </div>

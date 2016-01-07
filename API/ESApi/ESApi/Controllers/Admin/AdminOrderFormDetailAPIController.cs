@@ -25,10 +25,10 @@ namespace ESApi.Controllers.Admin
         }
 
         [HttpGet]
-        [Route("api/admin/orderformdetail/byID/{ID1}/{ID2}")]
-        public IHttpActionResult GetId([FromUri]string id1, [FromUri]string id2)
+        [Route("api/admin/orderformdetail/byID/{ID}")]
+        public IHttpActionResult GetId([FromUri]string id)
         {
-            return Ok(ad.getId(id1, id2));
+            return Ok(ad.getId(id));
         }
 
         [HttpPut]
@@ -36,6 +36,14 @@ namespace ESApi.Controllers.Admin
         public IHttpActionResult Update([FromBody]CHITIETDONHANGModel news_dh)
         {
             ad.update(news_dh);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("api/admin/orderformdetail/add")]
+        public IHttpActionResult Add([FromBody]CHITIETDONHANGModel news_dh)
+        {
+            ad.add(news_dh);
             return Ok();
         }
     }

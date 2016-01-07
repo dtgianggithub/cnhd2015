@@ -20,6 +20,23 @@ namespace ESClient.Models.Code
             }
         }
 
+        public static void SetProductSession(ProductList prolist, string type)
+        {
+            HttpContext.Current.Session[type] = prolist;
+        }
+
+        public static ProductList GetProductSession(string type)
+        {
+            var session = HttpContext.Current.Session[type];
+
+            if (session == null)
+                return null;
+            else
+            {
+                return session as ProductList;
+            }
+        }
+
         public static void SetUserSession(string user)
         {
             HttpContext.Current.Session["username"] = user;

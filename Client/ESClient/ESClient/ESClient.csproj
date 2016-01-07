@@ -44,6 +44,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -167,10 +175,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Code\LoginCode.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManufactoryManageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderDetailAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductManageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PromotionAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SupportAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -184,32 +198,32 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Controllers\SupportController.cs" />
-    <Compile Include="Models\Code\API.cs" />
-    <Compile Include="Models\Code\CheckoutCode.cs" />
-    <Compile Include="Models\Code\DataModel\CHITIETDONHANGModel.cs" />
-    <Compile Include="Models\Code\DataModel\DONHANGModel.cs" />
-    <Compile Include="Models\Code\DataModel\HOTROONLINE.cs" />
-    <Compile Include="Models\Code\DataModel\KHUYENMAIModel.cs" />
-    <Compile Include="Models\Code\DataModel\LOAISANPHAMModel.cs" />
-    <Compile Include="Models\Code\DataModel\LOAITHANHVIENModel.cs" />
-    <Compile Include="Models\Code\DataModel\NHASANXUATModel.cs" />
-    <Compile Include="Models\Code\DataModel\SANPHAMModel.cs" />
-    <Compile Include="Models\Code\DataModel\THANHTOANONLINEModel.cs" />
-    <Compile Include="Models\Code\DataModel\THANHVIENModel.cs" />
-    <Compile Include="Models\Code\DataModel\TRANGTHAIDONHANGModel.cs" />
-    <Compile Include="Models\Code\ManufactoryCode.cs" />
-    <Compile Include="Models\Code\MenuCode.cs" />
-    <Compile Include="Models\Code\ProductCode.cs" />
-    <Compile Include="Models\Code\PromotionCode.cs" />
-    <Compile Include="Models\Code\SearchCode.cs" />
-    <Compile Include="Models\Code\SearchModel.cs" />
-    <Compile Include="Models\Code\SessionHelper.cs" />
-    <Compile Include="Models\Code\SupportCode.cs" />
+    <Compile Include="Code\API.cs" />
+    <Compile Include="Code\CheckoutCode.cs" />
+    <Compile Include="Models\DataModel\CHITIETDONHANGModel.cs" />
+    <Compile Include="Models\DataModel\DONHANGModel.cs" />
+    <Compile Include="Models\DataModel\HOTROONLINE.cs" />
+    <Compile Include="Models\DataModel\KHUYENMAIModel.cs" />
+    <Compile Include="Models\DataModel\LOAISANPHAMModel.cs" />
+    <Compile Include="Models\DataModel\LOAITHANHVIENModel.cs" />
+    <Compile Include="Models\DataModel\NHASANXUATModel.cs" />
+    <Compile Include="Models\DataModel\SANPHAMModel.cs" />
+    <Compile Include="Models\DataModel\THANHTOANONLINEModel.cs" />
+    <Compile Include="Models\DataModel\THANHVIENModel.cs" />
+    <Compile Include="Models\DataModel\TRANGTHAIDONHANGModel.cs" />
+    <Compile Include="Code\ManufactoryCode.cs" />
+    <Compile Include="Code\MenuCode.cs" />
+    <Compile Include="Code\ProductCode.cs" />
+    <Compile Include="Code\PromotionCode.cs" />
+    <Compile Include="Code\SearchCode.cs" />
+    <Compile Include="Code\SearchModel.cs" />
+    <Compile Include="Code\SessionHelper.cs" />
+    <Compile Include="Code\SupportCode.cs" />
     <Compile Include="Models\EntityModel\AccessTokenModel.cs" />
     <Compile Include="Models\EntityModel\CartSession.cs" />
     <Compile Include="Models\EntityModel\CheckoutModel.cs" />
     <Compile Include="Models\EntityModel\DetailProduct.cs" />
-    <Compile Include="Models\EntityModel\ManufactoryList.cs" />
+    <Compile Include="Code\ManufactoryList.cs" />
     <Compile Include="Models\EntityModel\MenuList.cs" />
     <Compile Include="Models\EntityModel\NewProduct.cs" />
     <Compile Include="Models\EntityModel\OrderDetail.cs" />
@@ -878,7 +892,11 @@
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\controllers\Category.js" />
+    <Content Include="Scripts\controllers\Order.js" />
+    <Content Include="Scripts\controllers\OrderDetail.js" />
     <Content Include="Scripts\controllers\Product.js" />
+    <Content Include="Scripts\controllers\Promotion.js" />
+    <Content Include="Scripts\controllers\Support.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Asset\bower_components\bootstrap-social\.bower.json" />
@@ -1194,9 +1212,24 @@
     <Content Include="Areas\Admin\Views\ProductManage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountAdmin\Loginsuccess.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetailAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetailAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetailAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SupportAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SupportAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SupportAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PromotionAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactController.js" />
-    <Content Include="Scripts\controllers\alert-ctrl.js" />
     <Content Include="Scripts\controllers\Manufactory.js" />
     <Content Include="Scripts\controllers\master-ctrl.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
@@ -2018,7 +2051,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Code\" />
     <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>

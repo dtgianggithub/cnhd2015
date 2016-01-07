@@ -19,5 +19,8 @@ namespace ESApi.Models.ModelEntity
         public bool SANPHAMBANCHAY { get; set; }
         public bool DAXOA { get; set; }
         public int MAKHUYENMAI { get; set; }
+
+        public string TENLOAISANPHAM { get; set; }
+        public string TENNHASANXUAT { get; set; }
     }
 }

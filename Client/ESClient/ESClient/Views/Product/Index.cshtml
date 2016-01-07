@@ -1,4 +1,6 @@
 ﻿@using ESClient.Models.EntityModel
+@using PagedList;
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
@@ -15,41 +17,44 @@ else
     <div class="center_title_bar">Sản phẩm / @Model.path</div>
 }
 
+<div style="min-height: 750px">
+    @for (int i = 0; i < Model.newPageList.Count; i++)
+    {
+        <div class="prod_box">
+            <div class="top_prod_box"></div>
+            <div class="center_prod_box">
+                <div class="product_title"><a href="@Url.Action("Details", "Product", new { id = Model.newPageList[i].MA })">@Model.newPageList[i].TEN</a></div>
+                <div class="product_img"><a href="@Url.Action("Details", "Product", new { id = Model.newPageList[i].MA })"><img height="100" width="100" src="@Url.Content("http://i1078.photobucket.com/albums/w491/nguyenhunghau1/" + Model.newPageList[i].HINHANH)" border="0" /></a></div>
 
-@for (int i = 0; i < Model.newList.Count; i++)
-{
-    <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-            <div class="product_title"><a href="@Url.Action("Details", "Product", new { id = Model.newList[i].MA })">@Model.newList[i].TEN</a></div>
-            <div class="product_img"><a href="@Url.Action("Details", "Product", new { id = Model.newList[i].MA })"><img height="100" width="100" src= "@Url.Content("http://i1078.photobucket.com/albums/w491/nguyenhunghau1/" + Model.newList[i].HINHANH)" border="0" /></a></div>
+                @if (Model.newListPromotion[i] != 0)
+                {
+                    string dongiaban = String.Format("{0:0,0}", Model.newPageList[i].DONGIABAN);
+                    string giamgia = String.Format("{0:0,0}", Model.newListPromotion[i]);
 
-            @if (Model.newListPromotion[i] != 0)
-            {
-                string dongiaban = String.Format("{0:0,0}", Model.newList[i].DONGIABAN);
-                string giamgia = String.Format("{0:0,0}", Model.newListPromotion[i]);
+                    <div class="prod_price"><span class="reduce">@dongiaban</span> <span class="price">@giamgia</span></div>
+                }
+                else
+                {
+                    string dongiaban = String.Format("{0:0,0}", Model.newPageList[i].DONGIABAN);
+                    <div class="prod_price"><span class="price">@dongiaban</span></div>
+                }
 
-                <div class="prod_price"><span class="reduce">@dongiaban</span> <span class="price">@giamgia</span></div>
-            }
-            else
-            {
-                string dongiaban = String.Format("{0:0,0}", Model.newList[i].DONGIABAN);
-                <div class="prod_price"><span class="price">@dongiaban</span></div>
-            }
-
+            </div>
+            <div class="bottom_prod_box"></div>
+            <div class="prod_details_tab">
+                <a href="@Url.Action("AddCart", "Cart", new { id = Model.newPageList[i].MA })" title="header=[Thêm vào giỏ hàng] body=[&nbsp;] fade=[on]"><img src="@Url.Content("~/Content/images/cart.gif")" alt="" border="0" class="left_bt" /></a>
+                @if (Model.newPageList[i].SANPHAMBANCHAY)
+                {
+                    <a href="#" title="header=[Sản phẩm đặc biệt] body=[&nbsp;] fade=[on]"><img src="@Url.Content("~/Content/images/favs.gif")" alt="" border="0" class="left_bt" /></a>
+                }
+                <a href="@Url.Action("Details", "Product", new { id = Model.newPageList[i].MA })" title="header=[Xem chi tiết] body=[&nbsp;] fade=[on]"><img src="@Url.Content("~/Content/images/square-blue-add.gif")" alt="" border="0" class="left_bt" /></a>
+            </div>
         </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab">
-            <a href="@Url.Action("AddCart", "Cart", new { id = Model.newList[i].MA})" title="header=[Thêm vào giỏ hàng] body=[&nbsp;] fade=[on]"><img src="@Url.Content("~/Content/images/cart.gif")" alt="" border="0" class="left_bt" /></a>
-            @if (Model.newList[i].SANPHAMBANCHAY)
-            {
-                <a href="#" title="header=[Sản phẩm đặc biệt] body=[&nbsp;] fade=[on]"><img src="@Url.Content("~/Content/images/favs.gif")" alt="" border="0" class="left_bt" /></a>
-            }
-            <a href="@Url.Action("Details", "Product", new { id = Model.newList[i].MA })" title="header=[Xem chi tiết] body=[&nbsp;] fade=[on]"><img src="@Url.Content("~/Content/images/square-blue-add.gif")" alt="" border="0" class="left_bt" /></a>
-        </div>
+    }
+</div>
+
+    <div class="pageadmin" style="margin-top: 100px;">
+        @Html.PagedListPager((IPagedList)Model.newPageList, page => Url.Action("Index", new { name = ViewBag.name, page = page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        <div id="pageInfo" class="pageInfo">Trang: @Model.newPageList.PageNumber / @Model.newPageList.PageCount</div>
     </div>
-}
-
-
-
-<!-- end of center content -->
+    <!-- end of center content -->
